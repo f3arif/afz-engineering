@@ -1,0 +1,34 @@
+name: AFZ WebChat source verification
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify-webchat-source:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Reconstruct and verify production WebChat assets
+        run: node scripts/materialize-webchat-assets.mjs
+
+      - name: Verify production widget JavaScript syntax
+        run: node --check webchat-dist/afz-ai-widget.js
+
+      - name: Confirm same-origin API contract
+        shell: bash
+        run: |
+          grep -Fq '/api/ai-chat' webchat-dist/afz-ai-widget.js
+          grep -Fq 'AFZ CHAT SESSION PERSISTENCE' webchat-dist/afz-ai-widget.js
+          echo 'AFZ WebChat source verification: PASS'
