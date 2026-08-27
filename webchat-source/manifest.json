@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "capturedAt": "2026-08-27",
+  "source": "Recovered from OneDrive - AFZ Engineering Inc/Websites/AFZ/html",
+  "files": {
+    "afz-ai-widget.js": {
+      "bundle": "webchat-source/afz-ai-widget.js.gz.b64",
+      "sha256": "8a82133eb6ffd9119ebbd489affd3a4f4a7485388fde2d2c4283a9d07a1cfd69",
+      "requiredMarkers": [
+        "AFZ CHAT SESSION PERSISTENCE",
+        "/api/ai-chat"
+      ]
+    },
+    "afz-ai-widget.css": {
+      "bundle": "webchat-source/afz-ai-widget.css.gz.b64",
+      "sha256": "102337557e89e2430e0622ca594b3e08930f10748365d911cd6bdd0b1176a9b2",
+      "requiredMarkers": [
+        "#afz-ai-launcher",
+        "#afz-ai-panel"
+      ]
+    }
+  },
+  "runtimeContract": {
+    "browserEndpoint": "/api/ai-chat",
+    "backendOwner": "hpenvy",
+    "backendLocalAddress": "127.0.0.1:8500",
+    "publicProxy": "Raspberry Pi NPM",
+    "trustedClientIpHeader": "X-AFZ-Client-IP"
+  }
+}

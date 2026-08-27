@@ -8,7 +8,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "production:guard": "node scripts/afz-production-deploy-guard.mjs"
+    "production:guard": "node scripts/afz-production-deploy-guard.mjs",
+    "webchat:materialize": "node scripts/materialize-webchat-assets.mjs",
+    "webchat:verify": "node scripts/materialize-webchat-assets.mjs"
   },
   "dependencies": {
     "framer-motion": "^12.42.0",
