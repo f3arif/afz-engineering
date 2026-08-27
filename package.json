@@ -4,9 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "node scripts/afz-production-deploy-guard.mjs",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "production:guard": "node scripts/afz-production-deploy-guard.mjs"
   },
   "dependencies": {
     "framer-motion": "^12.42.0",

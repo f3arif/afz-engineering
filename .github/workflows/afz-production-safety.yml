@@ -1,0 +1,40 @@
+name: AFZ production safety
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  production-webchat-boundary:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Verify fail-closed production boundary
+        shell: bash
+        run: |
+          set +e
+          node scripts/afz-production-deploy-guard.mjs
+          code=$?
+          set -e
+
+          reconciled=$(node -e "const m=require('./production-site/manifest.json'); process.stdout.write(String(m.reconciled === true))")
+
+          if [ "$reconciled" = "true" ]; then
+            if [ "$code" -ne 0 ]; then
+              echo "Reconciled production source must pass the WebChat deployment guard."
+              exit 1
+            fi
+          else
+            if [ "$code" -ne 42 ]; then
+              echo "Unreconciled production source must remain fail-closed with exit code 42."
+              exit 1
+            fi
+            echo "PASS: stale starter deployment remains blocked until production reconciliation completes."
+          fi
