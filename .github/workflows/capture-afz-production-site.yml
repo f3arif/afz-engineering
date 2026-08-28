@@ -1,0 +1,160 @@
+name: Capture AFZ production site
+
+on:
+  push:
+    branches:
+      - cutover/full-static-site
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  capture-production-site:
+    if: ${{ !contains(github.event.head_commit.message || '', '[site-capture]') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out cutover branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+
+      - name: Capture public production files
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf production-site/capture-tmp
+          mkdir -p production-site/capture-tmp/img
+          base='https://afzeng.ca'
+          curl_args=(-fsSL --compressed --retry 3 --retry-delay 1 -H 'Cache-Control: no-cache')
+          curl "${curl_args[@]}" "$base/" -o production-site/capture-tmp/index.html
+          curl "${curl_args[@]}" "$base/contact.html" -o production-site/capture-tmp/contact.html
+          curl "${curl_args[@]}" "$base/services.html" -o production-site/capture-tmp/services.html
+          curl "${curl_args[@]}" "$base/afz-ai-widget.js?v=20260821100321" -o production-site/capture-tmp/afz-ai-widget.js
+          curl "${curl_args[@]}" "$base/afz-ai-widget.css?v=20260821100321" -o production-site/capture-tmp/afz-ai-widget.css
+          curl "${curl_args[@]}" "$base/img/project-residential.jpg?v=2" -o production-site/capture-tmp/img/project-residential.jpg
+          curl "${curl_args[@]}" "$base/img/project-commercial.jpg?v=2" -o production-site/capture-tmp/img/project-commercial.jpg
+          curl "${curl_args[@]}" "$base/img/project-retrofit.jpg?v=2" -o production-site/capture-tmp/img/project-retrofit.jpg
+
+      - name: Verify recovered production hashes and WebChat contract
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          import hashlib
+          import sys
+
+          root = Path('production-site/capture-tmp')
+          expected = {
+              'index.html': '0e80d2dd606b81bc6f8b6208e93579aef7750558bc1a162eb18c0721d59928bd',
+              'contact.html': '033563599a8f385b10bb2f7e34330b28be4c1ba0a10fadd8a93a98bb962f7800',
+              'services.html': '95f830edf709a81e82e98d7d4561985222ef73f36e5da3097f6d18a636b4d3fe',
+              'afz-ai-widget.js': '8a82133eb6ffd9119ebbd489affd3a4f4a7485388fde2d2c4283a9d07a1cfd69',
+              'afz-ai-widget.css': '102337557e89e2430e0622ca594b3e08930f10748365d911cd6bdd0b1176a9b2',
+              'img/project-residential.jpg': '5b5ea73924a7ad837108c4852a9b2359561d71c4d386ba38076f1ea70d4ec0ea',
+              'img/project-commercial.jpg': 'b8587c748ac37d94c2e0431b1153da96a9f18bd9ccfffed2910f836ca6aba884',
+              'img/project-retrofit.jpg': 'c99627ee1ce3309cc936a8acc731d3302fa4ce3b3c85693ec0fc5d00882089dc',
+          }
+          for rel, wanted in expected.items():
+              data = (root / rel).read_bytes()
+              actual = hashlib.sha256(data).hexdigest()
+              print(f'{rel}: {actual}')
+              if actual != wanted:
+                  print(f'AFZ CAPTURE BLOCKED: {rel} hash mismatch; expected {wanted}', file=sys.stderr)
+                  sys.exit(42)
+
+          markers = {
+              'index.html': ['afz-ai-widget.js', 'afz-ai-widget.css'],
+              'contact.html': ['AFZ AI PROJECT QUESTION PREFILL', 'AFZ LEAD SOURCE TRACKING'],
+              'services.html': ['afz-ai-widget.js', 'afz-ai-widget.css'],
+              'afz-ai-widget.js': ['AFZ CHAT SESSION PERSISTENCE', '/api/ai-chat'],
+              'afz-ai-widget.css': ['#afz-ai-launcher', '#afz-ai-panel'],
+          }
+          for rel, required in markers.items():
+              text = (root / rel).read_text('utf-8')
+              for marker in required:
+                  if marker not in text:
+                      print(f'AFZ CAPTURE BLOCKED: {rel} missing marker {marker}', file=sys.stderr)
+                      sys.exit(42)
+
+          index = (root / 'index.html').read_text('utf-8')
+          for ref in ('img/project-residential.jpg', 'img/project-commercial.jpg', 'img/project-retrofit.jpg'):
+              if ref not in index:
+                  print(f'AFZ CAPTURE BLOCKED: index.html no longer references {ref}', file=sys.stderr)
+                  sys.exit(42)
+          print('AFZ production hash and runtime dependency verification: PASS')
+          PY
+          node --check production-site/capture-tmp/afz-ai-widget.js
+
+      - name: Promote verified snapshot and write reconciled manifest
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -f production-site/index.html production-site/contact.html production-site/services.html production-site/afz-ai-widget.js production-site/afz-ai-widget.css
+          rm -rf production-site/img
+          mv production-site/capture-tmp/index.html production-site/index.html
+          mv production-site/capture-tmp/contact.html production-site/contact.html
+          mv production-site/capture-tmp/services.html production-site/services.html
+          mv production-site/capture-tmp/afz-ai-widget.js production-site/afz-ai-widget.js
+          mv production-site/capture-tmp/afz-ai-widget.css production-site/afz-ai-widget.css
+          mv production-site/capture-tmp/img production-site/img
+          rmdir production-site/capture-tmp
+          python - <<'PY'
+          from pathlib import Path
+          import datetime, hashlib, json
+          root = Path('production-site')
+          names = [
+              'index.html', 'contact.html', 'services.html',
+              'afz-ai-widget.js', 'afz-ai-widget.css',
+              'img/project-residential.jpg', 'img/project-commercial.jpg', 'img/project-retrofit.jpg'
+          ]
+          files = {name: {'sha256': hashlib.sha256((root/name).read_bytes()).hexdigest()} for name in names}
+          manifest = {
+              'schemaVersion': 2,
+              'reconciled': True,
+              'source': {
+                  'previousAuthority': 'OneDrive - AFZ Engineering Inc/Websites/AFZ/html',
+                  'capturedFrom': 'https://afzeng.ca',
+                  'capturedAt': datetime.datetime.now(datetime.timezone.utc).isoformat(),
+                  'verification': 'Public production bytes matched the recovered authoritative OneDrive source SHA-256 values before promotion.'
+              },
+              'deployment': {
+                  'target': '/opt/edge/afz-site/html',
+                  'mode': 'git-commit-to-pi',
+                  'oneDriveRole': 'backup-only',
+                  'deleteExtraneousFiles': False
+              },
+              'webchat': {
+                  'backendOwner': 'hpenvy',
+                  'endpoint': '/api/ai-chat',
+                  'backendLocalAddress': '127.0.0.1:8500',
+                  'healthEndpoint': '/health',
+                  'proxyRequirement': 'NPM must preserve the existing same-origin route and trusted X-AFZ-Client-IP stamping'
+              },
+              'files': files
+          }
+          (root/'manifest.json').write_text(json.dumps(manifest, indent=2) + '\n', encoding='utf-8')
+          PY
+
+      - name: Run production deploy guard
+        shell: bash
+        run: |
+          set -euo pipefail
+          node scripts/afz-production-deploy-guard.mjs
+
+      - name: Commit verified site snapshot to cutover branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add production-site
+          if git diff --cached --quiet; then
+            echo 'Verified production snapshot already matches Git.'
+            exit 0
+          fi
+          git commit -m '[site-capture] Capture verified AFZ production site'
+          git push origin HEAD:cutover/full-static-site
