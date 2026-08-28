@@ -1,10 +1,11 @@
 {
-  "schemaVersion": 1,
-  "reconciled": false,
+  "schemaVersion": 2,
+  "reconciled": true,
   "source": {
     "previousAuthority": "OneDrive - AFZ Engineering Inc/Websites/AFZ/html",
-    "capturedAt": "2026-08-27",
-    "note": "Recovered from the current authoritative production source. Set reconciled=true only after these exact production files are committed under production-site/ and the guard passes."
+    "capturedFrom": "https://afzeng.ca",
+    "capturedAt": "2026-08-28T00:53:26.735065+00:00",
+    "verification": "Public production bytes matched the recovered authoritative OneDrive source SHA-256 values before promotion."
   },
   "deployment": {
     "target": "/opt/edge/afz-site/html",
@@ -34,6 +35,15 @@
     },
     "afz-ai-widget.css": {
       "sha256": "102337557e89e2430e0622ca594b3e08930f10748365d911cd6bdd0b1176a9b2"
+    },
+    "img/project-residential.jpg": {
+      "sha256": "5b5ea73924a7ad837108c4852a9b2359561d71c4d386ba38076f1ea70d4ec0ea"
+    },
+    "img/project-commercial.jpg": {
+      "sha256": "b8587c748ac37d94c2e0431b1153da96a9f18bd9ccfffed2910f836ca6aba884"
+    },
+    "img/project-retrofit.jpg": {
+      "sha256": "c99627ee1ce3309cc936a8acc731d3302fa4ce3b3c85693ec0fc5d00882089dc"
     }
   }
 }
