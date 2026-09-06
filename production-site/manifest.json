@@ -46,7 +46,23 @@
       "sha256": "c99627ee1ce3309cc936a8acc731d3302fa4ce3b3c85693ec0fc5d00882089dc"
     },
     "blog.html": {
-      "sha256": "dbd9177b3aae6f8578ee15306935670de407b753a0cb6f42f1f1a99cecb1b33c"
+      "sha256": "1db58f5f48fa7a431a7e6b11b161c3da3764c7c9140823d242867045857a8874"
+    },
+    "residential-hrv-mechanical-ventilation-ontario.html": {
+      "sha256": "04aadba21460d58a0fd87f1f3ffcf10214a119ca10dc081512fadc120afa54c1"
+    },
+    "sitemap.xml": {
+      "sha256": "326135e732eeab4152c2e41ada510713d746107004b682c004dabc8160abdd0a"
+    },
+    "robots.txt": {
+      "sha256": "ce52fb8624dea2f02de0f576a048763e4e9412c32099e80d9db0b3a654869f42"
     }
+  },
+  "publicationGate": {
+    "notBefore": "2026-09-07T17:35:00.000Z",
+    "blogPostId": "cmt0kfksr000088u40se0gw58",
+    "revision": 4,
+    "scheduledFor": "2026-09-07T17:35:00.000+00:00",
+    "articleFile": "residential-hrv-mechanical-ventilation-ontario.html"
   }
 }
