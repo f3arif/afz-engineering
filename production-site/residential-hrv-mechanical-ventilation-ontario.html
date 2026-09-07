@@ -1098,6 +1098,106 @@
 }
 </style>
 
+
+<style>
+.source-visual{
+  margin:30px 0 38px;
+  overflow:hidden;
+  border:1px solid var(--line);
+  border-radius:18px;
+  background:#fff;
+  box-shadow:0 12px 34px rgba(21,57,94,.08);
+}
+.source-visual > a{
+  display:block;
+  background:#f4f8fb;
+}
+.source-visual img{
+  display:block;
+  width:100%;
+  height:auto;
+  object-fit:cover;
+}
+.source-visual-photo img{
+  aspect-ratio:16/9;
+  object-fit:cover;
+}
+.source-visual-schematic img{
+  max-height:420px;
+  padding:20px;
+  object-fit:contain;
+  background:#fff;
+}
+.source-visual figcaption{
+  padding:16px 18px 18px;
+  color:var(--slate);
+  font-size:.86rem;
+  line-height:1.55;
+}
+.source-visual figcaption strong{
+  color:var(--ink);
+}
+.visual-credit{
+  display:block;
+  margin-top:8px;
+  padding-top:8px;
+  border-top:1px solid var(--line);
+  font-size:.76rem;
+  line-height:1.45;
+}
+.visual-credit a,
+.source-link-card a{
+  color:var(--cyan-deep);
+  font-weight:700;
+}
+.source-visual-grid{
+  display:grid;
+  grid-template-columns:minmax(0,1.15fr) minmax(250px,.85fr);
+  gap:16px;
+  align-items:stretch;
+  margin:24px 0 34px;
+}
+.source-visual-grid .source-visual{
+  margin:0;
+}
+.source-link-card{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:22px;
+  border:1px solid rgba(34,90,151,.16);
+  border-radius:18px;
+  background:linear-gradient(145deg,#f6fbff,#fff);
+  box-shadow:0 12px 34px rgba(21,57,94,.06);
+}
+.source-link-kicker{
+  margin-bottom:8px;
+  color:var(--cyan-deep);
+  font-size:.68rem;
+  font-weight:800;
+  letter-spacing:.12em;
+}
+.source-link-card strong{
+  color:var(--ink);
+  font-size:1rem;
+  line-height:1.35;
+}
+.source-link-card p{
+  margin:10px 0 14px!important;
+  color:var(--slate);
+  font-size:.84rem;
+  line-height:1.55;
+}
+@media(max-width:760px){
+  .source-visual-grid{
+    grid-template-columns:1fr;
+  }
+  .source-visual-photo img{
+    aspect-ratio:auto;
+  }
+}
+</style>
+
 </head>
 <body>
 
@@ -1233,6 +1333,28 @@
       <p class="article-current"><strong>Current as of September 2, 2026.</strong></p>
 <p>Modern homes are generally more airtight than older housing. That can improve comfort, energy performance and enclosure durability, but uncontrolled air leakage should not be treated as a predictable ventilation strategy. Mechanical ventilation intentionally moves air using fans, ducting and designed openings. Examples include bathroom fans, kitchen exhaust, clothes-dryer exhausts, HRVs and ERVs.</p>
 <p>For Ontario projects, ventilation should be considered as a complete building-system function. The question is not simply whether to install an HRV. It is how the dwelling will provide planned outdoor-air supply, exhaust moisture and pollutants at their sources, manage pressure effects and operate reliably in every season.</p>
+
+<figure class="source-visual source-visual-photo">
+  <a href="https://commons.wikimedia.org/wiki/File:NIST_1770_(7788039192).jpg" target="_blank" rel="noopener noreferrer">
+    <img
+      src="/assets/insights/hrv/nist-hrv-installation.jpg"
+      alt="Heat recovery ventilator installed with ductwork in the basement of the NIST Net-Zero Energy Residential Test Facility."
+      loading="lazy"
+      width="1200"
+      height="675"
+    >
+  </a>
+  <figcaption>
+    <strong>Real installation example.</strong>
+    A heat recovery ventilator installed in the basement of NIST’s Net-Zero Energy Residential Test Facility.
+    <span class="visual-credit">
+      Photo: National Institute of Standards and Technology (NIST), public domain.
+      Equipment shown is illustrative and is not an AFZ product endorsement.
+      <a href="https://commons.wikimedia.org/wiki/File:NIST_1770_(7788039192).jpg" target="_blank" rel="noopener noreferrer">Source &amp; public-domain record ↗</a>
+    </span>
+  </figcaption>
+</figure>
+
 <h2 id="ontario-code-context">Ontario code context</h2>
 <p>Ontario Regulation 163/24 currently adopts the National Building Code of Canada 2020, First Printing, together with the document titled “Ontario Amendments to the National Building Code of Canada 2020,” dated July 17, 2026. Those documents together form Ontario’s current Building Code framework. The current e-Laws consolidation is dated July 22, 2026 to the September 2, 2026 e-Laws currency date, and identifies O. Reg. 242/26 as the last amendment.</p>
 <p>Ontario Regulation 332/12 is not the normal starting point for new applications. Under the transition provision in O. Reg. 163/24, it continues for limited construction cases involving a permit issued on or before December 31, 2024, or qualifying working drawings, plans and specifications substantially completed by that date where a permit application was made on or before March 31, 2025. The transition does not apply unless construction begins within six months after the permit is issued.</p>
@@ -1267,6 +1389,41 @@
     <p>Removes air from selected locations and can depressurize the house when replacement air is not adequately coordinated.</p>
   </div>
 </div>
+
+<div class="source-visual-grid">
+  <figure class="source-visual source-visual-schematic">
+    <a href="https://commons.wikimedia.org/wiki/File:Heat_exchanger.svg" target="_blank" rel="noopener noreferrer">
+      <img
+        src="/assets/insights/hrv/heat-exchanger-cc0.svg"
+        alt="Diagram of a cross-plate air-to-air heat exchanger showing separated airflow paths through the heat-exchange core."
+        loading="lazy"
+        width="800"
+        height="500"
+      >
+    </a>
+    <figcaption>
+      <strong>Heat-exchanger concept.</strong>
+      Cross-plate heat-exchanger airflow paths support the discussion of heat recovery between exhaust and incoming outdoor-air streams.
+      <span class="visual-credit">
+        Diagram: Jlfd via Wikimedia Commons, CC0 1.0.
+        <a href="https://commons.wikimedia.org/wiki/File:Heat_exchanger.svg" target="_blank" rel="noopener noreferrer">Source &amp; CC0 record ↗</a>
+      </span>
+    </figcaption>
+  </figure>
+
+  <aside class="source-link-card">
+    <span class="source-link-kicker">LIVE TECHNICAL SOURCE · LINK ONLY</span>
+    <strong>DOE Building America — HRV airflow Figure 7</strong>
+    <p>
+      The DOE-sponsored CARB measure guideline includes a useful HRV schematic showing exhaust-air and outdoor-air paths through a heat exchanger.
+      The report states its figures were created by CARB unless otherwise noted, so AFZ links to the source instead of republishing that figure.
+    </p>
+    <a href="https://www1.eere.energy.gov/buildings/publications/pdfs/building_america/measure_guide_ventilation_systems.pdf" target="_blank" rel="noopener noreferrer">
+      View DOE-sponsored technical source ↗
+    </a>
+  </aside>
+</div>
+
 <p>A balanced HRV/ERV system uses fans to supply outdoor air and exhaust indoor air. Health Canada identifies balanced systems with heat or energy recovery as generally effective options for tightly built houses when supply and exhaust airflows are calibrated to balance. System performance still depends on the ducts, grilles, filters, controls, installation and balancing—not only on the ventilator’s nameplate capacity.</p>
 <p>An exhaust-only approach removes air from selected locations and relies on replacement air entering through available pathways or intentional provisions. It can be simpler, but it can also depressurize the house. Health Canada notes that uncontrolled replacement air may enter through cracks and openings and that depressurization can contribute to soil-gas entry or backdrafting concerns with susceptible combustion appliances.</p>
 <p>The pressure effect of a ventilation system is not an abstract issue. National Research Council Canada research found depressurization in the exhaust-only configuration tested and slight pressurization in the balanced ERV configuration tested. That result is useful context, not a universal prediction: actual pressure behaviour depends on the building enclosure, installed equipment, weather, appliance venting, operating conditions and airflow balance. Where fireplaces, natural-draft appliances or substantial exhaust equipment are present, pressure interactions should be assessed as part of design and commissioning.</p>

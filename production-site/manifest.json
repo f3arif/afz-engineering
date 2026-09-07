@@ -49,13 +49,19 @@
       "sha256": "a949e6f26f3f228db92a674a268b2fcd92fc01463de35161fde42a8766a9d20e"
     },
     "residential-hrv-mechanical-ventilation-ontario.html": {
-      "sha256": "d2f58fb563e1cff68df9f9bb1328c15ad50dd3f3fc95a9b01ec8d56aa48efaf0"
+      "sha256": "c239fc4cb613369a4e70ba5c1c4cd0a9d7d27d38923355ed34ae651aaccec9e7"
     },
     "sitemap.xml": {
       "sha256": "326135e732eeab4152c2e41ada510713d746107004b682c004dabc8160abdd0a"
     },
     "robots.txt": {
       "sha256": "ce52fb8624dea2f02de0f576a048763e4e9412c32099e80d9db0b3a654869f42"
+    },
+    "assets/insights/hrv/nist-hrv-installation.jpg": {
+      "sha256": "091f51a97bfc4ab6769b850f42da991e2d5625945520a3f0f020fb0275380126"
+    },
+    "assets/insights/hrv/heat-exchanger-cc0.svg": {
+      "sha256": "bc289895fa8c282b400a17eac95728f6464f6f9f9fc591576a9d6b953af57d18"
     }
   },
   "publicationGate": {
