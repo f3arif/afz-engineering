@@ -857,6 +857,247 @@
   .statement h2{font-size:clamp(1.85rem,4.2vw,2.9rem);font-weight:800;color:var(--ink);letter-spacing:-.025em;line-height:1.08;max-width:20ch;margin:0 auto 18px}
   .statement .st-sub{color:var(--slate);font-size:1.06rem;max-width:56ch;margin:0 auto;line-height:1.6}
 </style>
+
+<style>
+/* AFZ Engineering Insights — technical article visual hierarchy */
+.article-hero{
+  padding:46px 0 52px;
+  background:
+    radial-gradient(circle at 78% 18%,rgba(127,208,242,.15),transparent 29%),
+    linear-gradient(180deg,#fff 0%,#f7fbff 100%);
+}
+.article-breadcrumb{margin-bottom:30px}
+.article-hero-grid{
+  display:grid;
+  grid-template-columns:minmax(0,1.15fr) minmax(390px,.85fr);
+  gap:64px;
+  align-items:center;
+}
+.article-hero h1{max-width:780px;font-size:clamp(2.05rem,3.7vw,3.45rem);line-height:1.03;letter-spacing:-.035em}
+.article-deck{max-width:720px;font-size:1.1rem;line-height:1.7}
+.article-meta span{
+  display:inline-flex;
+  align-items:center;
+  min-height:30px;
+  padding:5px 10px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  background:rgba(255,255,255,.72);
+}
+.vent-visual{
+  position:relative;
+  overflow:hidden;
+  padding:22px;
+  border:1px solid rgba(34,90,151,.14);
+  border-radius:24px;
+  background:rgba(255,255,255,.9);
+  box-shadow:0 24px 60px rgba(21,57,94,.12);
+}
+.vent-visual:before{
+  content:"";
+  position:absolute;
+  width:180px;height:180px;
+  right:-70px;top:-80px;
+  border-radius:50%;
+  background:rgba(56,184,232,.12);
+}
+.vent-visual-top{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:18px}
+.vent-kicker,.summary-kicker,.toc-kicker,.compare-label{
+  color:var(--cyan-deep);
+  font-size:.72rem;
+  font-weight:800;
+  letter-spacing:.14em;
+}
+.vent-status{
+  padding:5px 9px;
+  border-radius:999px;
+  background:var(--cyan-soft);
+  color:var(--navy);
+  font-size:.74rem;
+  font-weight:700;
+}
+.vent-house{
+  display:grid;
+  grid-template-columns:1fr 34px 1.1fr 34px 1fr;
+  grid-template-rows:auto auto;
+  gap:12px 4px;
+  align-items:stretch;
+}
+.vent-room,.vent-core{
+  min-height:92px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:14px;
+  border-radius:15px;
+}
+.vent-room{border:1px solid var(--line);background:#f9fbfd}
+.vent-core{
+  border:1px solid rgba(34,90,151,.16);
+  background:linear-gradient(145deg,var(--navy),#173d67);
+  color:#fff;
+  text-align:center;
+}
+.vent-core strong{color:#fff}
+.vent-room strong,.vent-core strong{font-size:.88rem;line-height:1.2}
+.vent-room small,.vent-core small{margin-top:5px;color:var(--slate);font-size:.72rem;line-height:1.35}
+.vent-core small{color:#cad9e8}
+.vent-core-icon{font-size:1.25rem;color:var(--cyan);line-height:1;margin-bottom:7px}
+.vent-dot{display:block;width:9px;height:9px;margin-bottom:9px;border-radius:50%;box-shadow:0 0 0 5px rgba(56,184,232,.11)}
+.vent-dot.intake,.vent-dot.supply{background:var(--cyan)}
+.vent-dot.exhaust{background:#ff9c72;box-shadow:0 0 0 5px rgba(255,156,114,.11)}
+.vent-flow{display:flex;align-items:center;justify-content:center;color:var(--cyan-deep);font-size:1.1rem;font-weight:800}
+.room-source{grid-column:1;grid-row:2}
+.flow-return{grid-column:2;grid-row:2}
+.vent-core-return{grid-column:3;grid-row:2}
+.flow-out{grid-column:4;grid-row:2}
+.room-exhaust{grid-column:5;grid-row:2}
+.vent-caption{margin:16px 2px 0;color:var(--slate);font-size:.82rem;line-height:1.5}
+
+.article-shell{
+  grid-template-columns:minmax(0,850px) minmax(235px,290px);
+  gap:56px;
+  padding-top:58px;
+}
+.article-body{font-size:1.035rem;line-height:1.82}
+.article-body h2{
+  scroll-margin-top:110px;
+  margin-top:58px;
+  padding-top:0;
+  font-size:1.82rem;
+  letter-spacing:-.018em;
+}
+.article-body h2:not(#quick-read-title):before{
+  content:"";
+  display:block;
+  width:34px;
+  height:3px;
+  margin-bottom:13px;
+  border-radius:99px;
+  background:var(--cyan);
+}
+.article-current{
+  display:inline-flex;
+  margin:0 0 24px!important;
+  padding:7px 10px;
+  border-radius:8px;
+  background:var(--navy-soft);
+  color:var(--navy);
+  font-size:.83rem;
+}
+.article-summary{
+  margin:0 0 34px;
+  padding:28px;
+  border:1px solid rgba(34,90,151,.14);
+  border-radius:20px;
+  background:linear-gradient(145deg,#f8fcff,#fff);
+  box-shadow:0 14px 35px rgba(21,57,94,.07);
+}
+.article-summary h2{
+  margin:5px 0 20px;
+  padding:0;
+  font-size:1.4rem;
+}
+.article-summary h2:before{display:none!important}
+.summary-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.summary-item{
+  padding:17px;
+  border:1px solid var(--line);
+  border-radius:14px;
+  background:#fff;
+}
+.summary-num{display:block;margin-bottom:8px;color:var(--cyan-deep);font-size:.72rem;font-weight:800;letter-spacing:.12em}
+.summary-item strong{display:block;margin-bottom:6px;font-size:.94rem;line-height:1.35}
+.summary-item p{margin:0!important;color:var(--slate);font-size:.84rem;line-height:1.55}
+
+.review-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+  margin:24px 0 30px!important;
+  padding:0!important;
+  list-style:none;
+  counter-reset:review;
+}
+.review-grid li{
+  position:relative;
+  margin:0!important;
+  padding:18px 18px 18px 50px;
+  border:1px solid var(--line);
+  border-radius:14px;
+  background:#fff;
+  counter-increment:review;
+}
+.review-grid li:before{
+  content:counter(review,decimal-leading-zero);
+  position:absolute;
+  top:17px;left:16px;
+  color:var(--cyan-deep);
+  font-size:.72rem;
+  font-weight:800;
+  letter-spacing:.08em;
+}
+.system-compare{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+  margin:22px 0 26px;
+}
+.compare-card{
+  padding:20px;
+  border:1px solid var(--line);
+  border-radius:16px;
+}
+.compare-card.balanced{background:linear-gradient(145deg,#eefaff,#fff)}
+.compare-card.exhaust-only{background:linear-gradient(145deg,#fff7f2,#fff)}
+.compare-card h3{margin:7px 0 8px;font-size:1.08rem}
+.compare-card p{margin:0!important;color:var(--slate);font-size:.88rem;line-height:1.6}
+
+.article-side{display:grid;gap:16px}
+.article-toc{
+  padding:20px 20px 15px;
+  border:1px solid var(--line);
+  border-radius:16px;
+  background:#fff;
+  box-shadow:0 12px 30px rgba(21,57,94,.06);
+}
+.article-toc .toc-kicker{display:block;margin-bottom:10px}
+.article-toc a{
+  display:block;
+  padding:8px 0;
+  border-top:1px solid rgba(18,54,91,.08);
+  color:var(--slate);
+  font-size:.82rem;
+  line-height:1.35;
+  text-decoration:none;
+}
+.article-toc a:hover{color:var(--navy)}
+.article-side-card{box-shadow:0 12px 30px rgba(21,57,94,.08)}
+
+@media(max-width:1080px){
+  .article-hero-grid{grid-template-columns:1fr;gap:34px}
+  .vent-visual{max-width:760px}
+}
+@media(max-width:900px){
+  .article-toc{display:none}
+  .summary-grid{grid-template-columns:1fr}
+}
+@media(max-width:650px){
+  .article-hero{padding-top:38px}
+  .article-hero h1{font-size:2rem}
+  .vent-visual{padding:16px;border-radius:18px}
+  .vent-house{grid-template-columns:1fr 26px 1.1fr;grid-template-rows:auto auto auto auto}
+  .vent-flow.flow-supply,.room-home{display:none}
+  .room-source{grid-column:1;grid-row:3}
+  .flow-return{grid-column:2;grid-row:3}
+  .vent-core-return{grid-column:3;grid-row:3}
+  .flow-out{grid-column:2;grid-row:4}
+  .room-exhaust{grid-column:3;grid-row:4}
+  .summary-grid,.review-grid,.system-compare{grid-template-columns:1fr}
+  .article-summary{padding:22px}
+}
+</style>
+
 </head>
 <body>
 
@@ -891,50 +1132,73 @@
 
 
   <section class="article-hero">
-
     <div class="wrap">
-
       <div class="article-breadcrumb">
-        <a href="/index.html">
-          Home
-        </a>
+        <a href="/index.html">Home</a>
         &nbsp;›&nbsp;
-        <a href="/blog.html">
-          Engineering Insights
-        </a>
+        <a href="/blog.html">Engineering Insights</a>
         &nbsp;›&nbsp;
         Article
       </div>
 
-      <span class="eyebrow">
-        HVAC · Ventilation
-      </span>
+      <div class="article-hero-grid">
+        <div class="article-hero-copy">
+          <span class="eyebrow">HVAC · Ventilation</span>
+          <h1>Residential HRV and Mechanical Ventilation in Ontario: Code Framework and Design Considerations</h1>
+          <p class="article-deck">Learn how HRVs, ERVs and residential mechanical ventilation fit within Ontario’s current Building Code framework, with practical design, pressure-control, commissioning and maintenance considerations.</p>
+          <div class="article-meta">
+            <span>AFZ Engineering Inc.</span>
+            <span>7 min read</span>
+            <span>Ontario</span>
+            <span>Updated Sep. 2, 2026</span>
+          </div>
+        </div>
 
-      <h1>
-        Residential HRV and Mechanical Ventilation in Ontario: Code Framework and Design Considerations
-      </h1>
-
-      <p class="article-deck">
-        Learn how HRVs, ERVs and residential mechanical ventilation fit within Ontario’s current Building Code framework, with practical design, pressure-control, commissioning and maintenance considerations.
-      </p>
-
-      <div class="article-meta">
-
-        <span>
-          AFZ Engineering Inc.
-        </span>
-
-        <span>
-          7 min read
-        </span>
-
-        <span>
-          Ontario
-        </span>
-</div>
-
+        <div class="vent-visual" aria-label="Residential ventilation system overview">
+          <div class="vent-visual-top">
+            <span class="vent-kicker">SYSTEM VIEW</span>
+            <span class="vent-status">Balanced airflow</span>
+          </div>
+          <div class="vent-house">
+            <div class="vent-room room-outdoor">
+              <span class="vent-dot intake"></span>
+              <strong>Outdoor air</strong>
+              <small>Fresh-air intake</small>
+            </div>
+            <div class="vent-flow flow-in"><span>→</span></div>
+            <div class="vent-core">
+              <span class="vent-core-icon">↔</span>
+              <strong>HRV / ERV</strong>
+              <small>Heat / energy recovery</small>
+            </div>
+            <div class="vent-flow flow-supply"><span>→</span></div>
+            <div class="vent-room room-home">
+              <span class="vent-dot supply"></span>
+              <strong>Living spaces</strong>
+              <small>Planned supply</small>
+            </div>
+            <div class="vent-room room-source">
+              <span class="vent-dot exhaust"></span>
+              <strong>Moisture &amp; odours</strong>
+              <small>Source exhaust</small>
+            </div>
+            <div class="vent-flow flow-return"><span>→</span></div>
+            <div class="vent-core vent-core-return">
+              <span class="vent-core-icon">↔</span>
+              <strong>Airflow balance</strong>
+              <small>Pressure coordination</small>
+            </div>
+            <div class="vent-flow flow-out"><span>→</span></div>
+            <div class="vent-room room-exhaust">
+              <span class="vent-dot exhaust"></span>
+              <strong>Outdoors</strong>
+              <small>Exhaust discharge</small>
+            </div>
+          </div>
+          <p class="vent-caption">Ventilation works as a coordinated building system — not as a single piece of equipment.</p>
+        </div>
+      </div>
     </div>
-
   </section>
 
 
@@ -942,23 +1206,46 @@
 
     <article class="article-body">
 
-      <h2>Residential HRV and Mechanical Ventilation in Ontario: Code Framework and Design Considerations</h2>
-<p><strong>Current as of September 2, 2026.</strong></p>
+      <section class="article-summary" aria-labelledby="quick-read-title">
+        <div class="summary-heading">
+          <span class="summary-kicker">QUICK READ</span>
+          <h2 id="quick-read-title">What to establish before selecting ventilation equipment</h2>
+        </div>
+        <div class="summary-grid">
+          <div class="summary-item">
+            <span class="summary-num">01</span>
+            <strong>Confirm the Code path first</strong>
+            <p>Determine the current Ontario Building Code framework and whether a valid transition provision applies.</p>
+          </div>
+          <div class="summary-item">
+            <span class="summary-num">02</span>
+            <strong>HRV or ERV is not the starting assumption</strong>
+            <p>Mechanical-ventilation obligations do not by themselves make either device universally mandatory.</p>
+          </div>
+          <div class="summary-item">
+            <span class="summary-num">03</span>
+            <strong>Review the whole air system</strong>
+            <p>Supply, source exhaust, pressure effects, controls, commissioning and maintenance need to work together.</p>
+          </div>
+        </div>
+      </section>
+
+      <p class="article-current"><strong>Current as of September 2, 2026.</strong></p>
 <p>Modern homes are generally more airtight than older housing. That can improve comfort, energy performance and enclosure durability, but uncontrolled air leakage should not be treated as a predictable ventilation strategy. Mechanical ventilation intentionally moves air using fans, ducting and designed openings. Examples include bathroom fans, kitchen exhaust, clothes-dryer exhausts, HRVs and ERVs.</p>
 <p>For Ontario projects, ventilation should be considered as a complete building-system function. The question is not simply whether to install an HRV. It is how the dwelling will provide planned outdoor-air supply, exhaust moisture and pollutants at their sources, manage pressure effects and operate reliably in every season.</p>
-<h2>Ontario code context</h2>
+<h2 id="ontario-code-context">Ontario code context</h2>
 <p>Ontario Regulation 163/24 currently adopts the National Building Code of Canada 2020, First Printing, together with the document titled “Ontario Amendments to the National Building Code of Canada 2020,” dated July 17, 2026. Those documents together form Ontario’s current Building Code framework. The current e-Laws consolidation is dated July 22, 2026 to the September 2, 2026 e-Laws currency date, and identifies O. Reg. 242/26 as the last amendment.</p>
 <p>Ontario Regulation 332/12 is not the normal starting point for new applications. Under the transition provision in O. Reg. 163/24, it continues for limited construction cases involving a permit issued on or before December 31, 2024, or qualifying working drawings, plans and specifications substantially completed by that date where a permit application was made on or before March 31, 2025. The transition does not apply unless construction begins within six months after the permit is issued.</p>
 <p>For Code-governed work, determine the applicable residential-ventilation requirements from NBC 2020, First Printing, read together with the July 17, 2026 Ontario Amendment Document and any applicable transition provision. Detailed matters such as ventilation capacity, ducting, source-exhaust arrangements, controls, outdoor-air and exhaust termination locations, forced-air-system coordination and depressurization measures must be checked against the documents in force for the particular project.</p>
 <p>Ontario’s public Building Code page currently identifies a January 16, 2025 digital compendium as its most recent downloadable version. That page also advises users to check the filing date and monitor Code updates. A downloaded compendium should therefore not be assumed to include every later amendment. The adopted documents identified by current e-Laws should control the Code review.</p>
-<h2>Mechanical ventilation does not automatically mean an HRV</h2>
+<h2 id="mechanical-ventilation-hrv">Mechanical ventilation does not automatically mean an HRV</h2>
 <p>Do not infer that an HRV or ERV is mandatory merely because a project has mechanical-ventilation obligations. Ontario’s current framework adopts NBC 2020, First Printing, as amended by the Ontario Amendment Document dated July 17, 2026. The permitted system configuration and project-specific requirements must be confirmed from those current documents.</p>
 <p>An HRV is a factory-built unit with fans or blowers that transfers heat between two isolated airstreams. In winter, it commonly recovers heat from exhaust air for the incoming outdoor-air stream; the direction of heat transfer depends on the temperatures of the streams. An ERV is a comparable unit that transfers both heat and moisture between isolated airstreams.</p>
 <p>These definitions do not determine which product is appropriate for every home. Selection should consider climate, occupancy, moisture sources, house airtightness, equipment location, duct-routing feasibility, frost-control operation, filtration, service access and the intended control strategy. An HRV can be useful where winter moisture removal is a priority. An ERV may be considered where moisture transfer is beneficial to the overall indoor-humidity strategy. Equipment choice remains part of a coordinated design decision.</p>
 <p>A forced-air furnace is also not automatically a complete ventilation system. Heating-air circulation can support ventilation distribution only when the system has been deliberately designed, installed and controlled for that purpose. Replacing a furnace, altering return-air ductwork or adding an HRV connection is therefore a useful time to review air distribution, interlocks, operating modes and actual delivered airflow.</p>
-<h2>What a practical project review should establish</h2>
+<h2 id="project-review">What a practical project review should establish</h2>
 <p>A useful residential ventilation review begins with the project rather than a product brochure. Key questions include:</p>
-<ol>
+<ol class="review-grid">
 <li><strong>Applicable Code path.</strong> Confirm the current Ontario Building Code framework and whether a valid transition provision applies.</li>
 <li><strong>Building and system scope.</strong> Establish whether the dwelling and proposed work follow the relevant Part 9 route or require a Part 6 mechanical design approach.</li>
 <li><strong>Layout and pollutant sources.</strong> Bedrooms, bathrooms, kitchens, laundry equipment, fireplaces, fuel-fired appliances and attached garages influence ventilation and pressure-risk considerations.</li>
@@ -967,24 +1254,36 @@
 <li><strong>Intake and exhaust terminations.</strong> Site conditions, snow accumulation, contamination sources and separation from exhaust outlets require project-specific coordination under the applicable Code.</li>
 </ol>
 <p>This is especially important during renovations. Finishing a basement, adding a bedroom, enclosing formerly open areas, changing ductwork or installing a high-capacity range hood can alter airflow paths and house pressure. Treating the new device as independent of the rest of the house can lead to drafts, moisture concerns, noise, poor source capture or combustion-safety problems.</p>
-<h2>Comparing balanced and exhaust-only approaches</h2>
+<h2 id="balanced-vs-exhaust">Comparing balanced and exhaust-only approaches</h2>
+<div class="system-compare" aria-label="Ventilation approach comparison">
+  <div class="compare-card balanced">
+    <span class="compare-label">BALANCED</span>
+    <h3>HRV / ERV approach</h3>
+    <p>Uses dedicated supply and exhaust fans. Installed performance depends on ductwork, grilles, controls and field balancing.</p>
+  </div>
+  <div class="compare-card exhaust-only">
+    <span class="compare-label">EXHAUST-ONLY</span>
+    <h3>Replacement air matters</h3>
+    <p>Removes air from selected locations and can depressurize the house when replacement air is not adequately coordinated.</p>
+  </div>
+</div>
 <p>A balanced HRV/ERV system uses fans to supply outdoor air and exhaust indoor air. Health Canada identifies balanced systems with heat or energy recovery as generally effective options for tightly built houses when supply and exhaust airflows are calibrated to balance. System performance still depends on the ducts, grilles, filters, controls, installation and balancing—not only on the ventilator’s nameplate capacity.</p>
 <p>An exhaust-only approach removes air from selected locations and relies on replacement air entering through available pathways or intentional provisions. It can be simpler, but it can also depressurize the house. Health Canada notes that uncontrolled replacement air may enter through cracks and openings and that depressurization can contribute to soil-gas entry or backdrafting concerns with susceptible combustion appliances.</p>
 <p>The pressure effect of a ventilation system is not an abstract issue. National Research Council Canada research found depressurization in the exhaust-only configuration tested and slight pressurization in the balanced ERV configuration tested. That result is useful context, not a universal prediction: actual pressure behaviour depends on the building enclosure, installed equipment, weather, appliance venting, operating conditions and airflow balance. Where fireplaces, natural-draft appliances or substantial exhaust equipment are present, pressure interactions should be assessed as part of design and commissioning.</p>
-<h2>Ventilation, moisture and indoor-air quality</h2>
+<h2 id="moisture-iaq">Ventilation, moisture and indoor-air quality</h2>
 <p>Ventilation helps manage moisture and dilute or remove contaminants generated by occupants, cooking, bathing, cleaning, pets, furnishings and building materials. Persistent window condensation, visible mould, lingering odours, stuffiness or uneven comfort are reasons to investigate moisture sources, source exhaust, ventilation operation and enclosure conditions.</p>
 <p>More ventilation is not automatically better. Outdoor air can reduce concentrations of some indoor pollutants and help manage humidity, but it also affects heating, cooling and dehumidification loads. In cold weather, excessive outdoor-air exchange can contribute to dry air and drafts. In humid weather, it can add moisture load. Appropriate operation depends on the system’s design intent, occupancy, outdoor conditions and specific pollutant or moisture sources.</p>
 <p>Source control remains important. A ventilation system cannot correct every indoor-air problem if moisture leaks, combustion by-products, poorly vented appliances or strong pollutant sources are left unaddressed.</p>
-<h2>Commissioning and maintenance</h2>
+<h2 id="commissioning-maintenance">Commissioning and maintenance</h2>
 <p>Engineering best practice is to treat startup and balancing as part of the installation rather than an optional final step. HRAI’s HRV/ERV balancing materials address design information, equipment identification, measured supply and exhaust airflow, startup inspection, controls, accessible dampers, filters, condensate drainage, duct condition and termination-related checks. HRAI identifies its worksheets as resources for certified individuals.</p>
 <p>Good practice includes documenting the intended airflow and control sequence; confirming service access, condensate provisions and duct connections before concealment; measuring and balancing completed-system airflows with suitable instruments; and giving occupants clear operating and maintenance information. ASHRAE’s commissioning resources similarly describe planning, design documentation, testing, reports, systems manuals and operating and maintenance training as parts of commissioning practice. These measures support performance, but they should not be mistaken for a substitute for the applicable Code requirements or manufacturer instructions.</p>
 <p>For homeowners, practical maintenance includes following the manufacturer’s instructions, cleaning or replacing filters as directed, keeping exterior hoods clear of snow and debris, understanding normal and boost operation, and arranging service for persistent frost, water leakage, unusual noise, odours or continuing comfort and moisture concerns.</p>
-<h2>The central takeaway</h2>
+<h2 id="central-takeaway">The central takeaway</h2>
 <p>For Ontario work governed by the current Building Code, determine the applicable residential-ventilation requirements from NBC 2020, First Printing, read together with the Ontario Amendment Document dated July 17, 2026 and any applicable transition provisions. An HRV or ERV may be considered only after that Code-path and whole-system review; neither device should be presented as universally required.</p>
 <p>A reliable Ontario residential solution depends on project-specific design, coordinated installation and verified operation. Product selection should follow that review—not replace it.</p>
 
 
-      <section class="sources">
+      <section class="sources" id="sources">
 
         <h2>
           Sources &amp; references
@@ -1249,6 +1548,18 @@
 
 
     <aside class="article-side">
+
+      <nav class="article-toc" aria-label="Article contents">
+        <span class="toc-kicker">ON THIS PAGE</span>
+        <a href="#ontario-code-context">Ontario code context</a>
+        <a href="#mechanical-ventilation-hrv">Mechanical ventilation &amp; HRVs</a>
+        <a href="#project-review">Practical project review</a>
+        <a href="#balanced-vs-exhaust">Balanced vs. exhaust-only</a>
+        <a href="#moisture-iaq">Moisture &amp; indoor air quality</a>
+        <a href="#commissioning-maintenance">Commissioning &amp; maintenance</a>
+        <a href="#central-takeaway">Central takeaway</a>
+        <a href="#sources">Sources &amp; references</a>
+      </nav>
 
       <div class="article-side-card">
 
