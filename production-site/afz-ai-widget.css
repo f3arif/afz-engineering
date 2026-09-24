@@ -547,6 +547,50 @@
 }
 
 /* AFZ COMMON QUESTIONS */
+.afz-ai-questions-toolbar {
+  flex: 0 0 auto;
+  padding: 8px 14px;
+  border-bottom: 1px solid #dbe5ef;
+  background: #fff;
+}
+
+.afz-ai-questions-toggle {
+  padding: 6px 0;
+  min-height: 36px;
+  border: 0;
+  background: transparent;
+  color: #174b77;
+  font: 700 12px Arial, Helvetica, sans-serif;
+  cursor: pointer;
+}
+
+.afz-ai-questions-toggle:focus-visible,
+.afz-ai-faq summary:focus-visible {
+  outline: 2px solid #0077bd;
+  outline-offset: 3px;
+}
+
+.afz-ai-preview-link {
+  display: block;
+  margin: 2px 0 5px;
+  color: #174b77;
+  font-size: 11px;
+  text-decoration: underline;
+}
+
+.afz-ai-faq-title { margin-top: 18px; }
+.afz-ai-faq {
+  padding: 10px 0;
+  border-top: 1px solid #dbe5ef;
+  color: #173a56;
+  font-size: 12px;
+  line-height: 1.5;
+}
+.afz-ai-faq summary { cursor: pointer; font-weight: 700; }
+.afz-ai-faq p { margin: 8px 0 0; font-size: 12px; line-height: 1.5; }
+.afz-ai-common-question:disabled,
+.afz-ai-followup-question:disabled { opacity: .6; cursor: wait; }
+
 .afz-ai-common-questions {
   margin: 2px 0 16px;
   padding: 12px;

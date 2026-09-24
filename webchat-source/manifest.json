@@ -5,15 +5,17 @@
   "files": {
     "afz-ai-widget.js": {
       "bundle": "webchat-source/afz-ai-widget.js.gz.b64",
-      "sha256": "8a82133eb6ffd9119ebbd489affd3a4f4a7485388fde2d2c4283a9d07a1cfd69",
+      "sha256": "ee0c168ce50e4ee1a28c667e584df56e07baa20f8b63364a224fd50137db9cce",
       "requiredMarkers": [
         "AFZ CHAT SESSION PERSISTENCE",
-        "/api/ai-chat"
+        "/api/ai-chat",
+        "AFZ PREVIEW FAQ MODE",
+        "Frequently asked questions"
       ]
     },
     "afz-ai-widget.css": {
       "bundle": "webchat-source/afz-ai-widget.css.gz.b64",
-      "sha256": "102337557e89e2430e0622ca594b3e08930f10748365d911cd6bdd0b1176a9b2",
+      "sha256": "7b7af7e544f25c38d15772a89477e4fd5fe5ea6b6360fb4f668b64717252b0dc",
       "requiredMarkers": [
         "#afz-ai-launcher",
         "#afz-ai-panel"
@@ -26,5 +28,6 @@
     "backendLocalAddress": "127.0.0.1:8500",
     "publicProxy": "Raspberry Pi NPM",
     "trustedClientIpHeader": "X-AFZ-Client-IP"
-  }
+  },
+  "updatedAt": "2026-09-24"
 }
