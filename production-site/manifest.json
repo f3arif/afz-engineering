@@ -1,4 +1,4 @@
-﻿{
+{
     "schemaVersion":  2,
     "reconciled":  true,
     "source":  {
@@ -22,19 +22,19 @@
                 },
     "files":  {
                   "index.html":  {
-                                     "sha256":  "9b6a6d5721726cd0a53e1b07863824777da7728ff25832345932d0ef9a0dc51b"
+                                     "sha256":  "fe927fba4c565ba64ddc6054dfe06d10672e63c4a156675e404edafca5028029"
                                  },
                   "contact.html":  {
-                                       "sha256":  "c160ad413d91a44f7f4b8234ba0c75e00807e38a7e2f69cf992ee87f8758ebf7"
+                                       "sha256":  "ac8e5c0027bde4f52a55dd97a751d25006ddad39df9063f0dfec9a6ba3806ad0"
                                    },
                   "services.html":  {
-                                        "sha256":  "59a0d6044514dfe8282bed71a80f6daf5372d01a9250064a2f4bce2b74e0e1d6"
+                                        "sha256":  "7c72dd846b5eaa207a6a5a6af78d9e184e9c80e92e1d6b00289f52682dfa6b96"
                                     },
                   "afz-ai-widget.js":  {
-                                           "sha256":  "8a82133eb6ffd9119ebbd489affd3a4f4a7485388fde2d2c4283a9d07a1cfd69"
+                                           "sha256":  "ee0c168ce50e4ee1a28c667e584df56e07baa20f8b63364a224fd50137db9cce"
                                        },
                   "afz-ai-widget.css":  {
-                                            "sha256":  "102337557e89e2430e0622ca594b3e08930f10748365d911cd6bdd0b1176a9b2"
+                                            "sha256":  "7b7af7e544f25c38d15772a89477e4fd5fe5ea6b6360fb4f668b64717252b0dc"
                                         },
                   "img/project-residential.jpg":  {
                                                       "sha256":  "5b5ea73924a7ad837108c4852a9b2359561d71c4d386ba38076f1ea70d4ec0ea"
@@ -46,13 +46,13 @@
                                                    "sha256":  "c99627ee1ce3309cc936a8acc731d3302fa4ce3b3c85693ec0fc5d00882089dc"
                                                },
                   "blog.html":  {
-                                    "sha256":  "01170d5016d4a81b38d041035318e124f5116dd7d527bb7c8dbe8e4a12115a3e"
+                                    "sha256":  "b088c7f11a47d4bfd1e38b8a3bafeef52204cf70f19901c79a55112417360250"
                                 },
                   "residential-hrv-mechanical-ventilation-ontario.html":  {
-                                                                              "sha256":  "e67ab6027c592dcc9ffd4e9d88d42e9743b4daba2d748f17227a9d7ef9e7f654"
+                                                                              "sha256":  "daee8c937cf176b9d8a6327d09beead2f0911687f1ee7387b62cf9af51393ebb"
                                                                           },
                   "hvac-permit-drawings-in-toronto-what-homeowners-contractors-and-renovators-need-before-app-fxnr73.html":  {
-                                                                                                                                 "sha256":  "a40ee5bfe0791ce9726f762a7cc2df89ada71f22188ccf9127357bcb1bb9582a"
+                                                                                                                                 "sha256":  "00f919e21371c9ef8a97f2a0c11deebcc646f489108d5a407b17b50a6686973d"
                                                                                                                              },
                   "sitemap.xml":  {
                                       "sha256":  "119b1cffccaab09329651e2b5e00c4ed14b2a73fe625763bbe5a8f7acde048eb"

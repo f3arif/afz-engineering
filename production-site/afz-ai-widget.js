@@ -12,6 +12,11 @@
 
   if (!launcher || !panel || !input || !sendBtn || !messages) return;
 
+  // AFZ PREVIEW FAQ MODE: private article previews have no chat API.
+  var previewMode = Boolean(document.currentScript &&
+    document.currentScript.hasAttribute('data-afz-preview-widget-controller'));
+  var questionsToggle;
+
   // AFZ CONTACT HANDOFF LAUNCHER HIDE
   // AFZ CONTACT ENQUIRY MODE
   var CONTACT_HANDOFF_KEY = 'afz-ai-contact-handoff-v1';
@@ -74,7 +79,9 @@
   }
 
   // AFZ CHAT SESSION PERSISTENCE
-  var CHAT_STORAGE_KEY = 'afz-ai-chat-session-v1';
+  var CHAT_STORAGE_KEY = previewMode
+    ? 'afz-ai-preview-chat-session-v1'
+    : 'afz-ai-chat-session-v1';
 
   function collectChatSession() {
     var entries = [];
@@ -292,9 +299,26 @@
   // AFZ COMMON QUESTIONS + QUESTION ANALYTICS
   var COMMON_QUESTIONS = [
     'What services do you provide?',
-    'Do you work on residential and commercial projects?',
     'Can you help with permit drawings?',
+    'Can you help with HVAC and ventilation design?',
+    'Can you help with plumbing and hydronic design?',
+    'What information should I prepare?',
     'How do I get a quote?'
+  ];
+
+  var FAQ_ANSWERS = [
+    'AFZ Engineering provides mechanical engineering services for residential and commercial projects, including HVAC, ventilation, plumbing, hydronic design, and mechanical permit drawings.',
+    'AFZ can help prepare mechanical permit drawings. The required scope depends on your project, location, existing systems, and proposed changes. Share your plans and any municipal comments for a scope review.',
+    'AFZ can help with HVAC and ventilation design, including heat-loss and heat-gain calculations, duct layouts, and HRV/ERV selection. The scope is confirmed after reviewing your project.',
+    'AFZ can help with plumbing and hydronic heating design. Share your plans, proposed changes, and available equipment information to discuss the required design scope.',
+    'Prepare your project location, building type, a description of the work, available floor plans, existing equipment details, and any permit comments. Early drawings are welcome.',
+    'Use Discuss Your Project on the AFZ website to share your project details and available drawings. Fees and timing are confirmed after reviewing the scope.'
+  ];
+
+  var FAQS = [
+    { question: 'What should I prepare before contacting AFZ?', answer: FAQ_ANSWERS[4] },
+    { question: 'Do you handle residential and commercial projects?', answer: FAQ_ANSWERS[0] },
+    { question: 'How are fees and timing confirmed?', answer: FAQ_ANSWERS[5] }
   ];
 
 
@@ -364,11 +388,12 @@
     if (existing) {
       existing.remove();
     }
+    if (questionsToggle) questionsToggle.setAttribute('aria-expanded', 'false');
   }
 
-  function ensureCommonQuestions() {
+  function ensureCommonQuestions(force) {
     if (
-      messages.querySelector('.afz-ai-user') ||
+      (!force && messages.querySelector('.afz-ai-user')) ||
       messages.querySelector('.afz-ai-common-questions')
     ) {
       return;
@@ -376,10 +401,11 @@
 
     var wrap = document.createElement('div');
     wrap.className = 'afz-ai-common-questions';
+    wrap.id = 'afz-ai-questions';
 
     var title = document.createElement('div');
     title.className = 'afz-ai-common-title';
-    title.textContent = 'Common questions';
+    title.textContent = 'Quick questions';
     wrap.appendChild(title);
 
     var list = document.createElement('div');
@@ -390,7 +416,9 @@
       button.type = 'button';
       button.className = 'afz-ai-common-question';
       button.textContent = question;
+      button.disabled = sendBtn.disabled;
       button.addEventListener('click', function () {
+        if (sendBtn.disabled) return;
         input.value = question;
         sendMessage('common-question');
       });
@@ -398,7 +426,26 @@
     });
 
     wrap.appendChild(list);
+
+    var faqTitle = document.createElement('div');
+    faqTitle.className = 'afz-ai-common-title afz-ai-faq-title';
+    faqTitle.textContent = 'Frequently asked questions';
+    wrap.appendChild(faqTitle);
+
+    FAQS.forEach(function (faq) {
+      var details = document.createElement('details');
+      details.className = 'afz-ai-faq';
+      var summary = document.createElement('summary');
+      summary.textContent = faq.question;
+      var answer = document.createElement('p');
+      answer.textContent = faq.answer;
+      details.appendChild(summary);
+      details.appendChild(answer);
+      wrap.appendChild(details);
+    });
+
     messages.appendChild(wrap);
+    if (questionsToggle) questionsToggle.setAttribute('aria-expanded', 'true');
   }
 
   function removeFollowUpSuggestions() {
@@ -482,6 +529,7 @@
       button.className = 'afz-ai-followup-question';
       button.textContent = suggestion;
       button.addEventListener('click', function () {
+        if (sendBtn.disabled) return;
         input.value = suggestion;
         sendMessage('common-question');
       });
@@ -494,9 +542,39 @@
   }
 
   // AFZ COMMON QUESTIONS INITIALIZATION ORDER
+  var questionsToolbar = document.createElement('div');
+  questionsToolbar.className = 'afz-ai-questions-toolbar';
+  questionsToggle = document.createElement('button');
+  questionsToggle.type = 'button';
+  questionsToggle.className = 'afz-ai-questions-toggle';
+  questionsToggle.textContent = 'Quick questions & FAQs';
+  questionsToggle.setAttribute('aria-controls', 'afz-ai-questions');
+  questionsToggle.setAttribute('aria-expanded', 'false');
+  questionsToggle.addEventListener('click', function () {
+    if (messages.querySelector('.afz-ai-common-questions')) {
+      removeCommonQuestions();
+    } else {
+      ensureCommonQuestions(true);
+      messages.scrollTop = messages.scrollHeight;
+    }
+  });
+  questionsToolbar.appendChild(questionsToggle);
+
+  if (previewMode) {
+    var liveChat = document.createElement('a');
+    liveChat.className = 'afz-ai-preview-link';
+    liveChat.href = 'https://afzeng.ca/';
+    liveChat.target = '_blank';
+    liveChat.rel = 'noopener noreferrer';
+    liveChat.textContent = 'FAQ preview · Visit the website for AI chat';
+    questionsToolbar.appendChild(liveChat);
+  }
+
+  messages.parentNode.insertBefore(questionsToolbar, messages);
   ensureCommonQuestions();
 
   function logQuestionAnalytics(question, source) {
+    if (previewMode) return;
     try {
       fetch('/api/chat-analytics', {
         method: 'POST',
@@ -985,12 +1063,17 @@
   function setBusy(busy) {
     sendBtn.disabled = busy;
     input.disabled = busy;
+    Array.prototype.forEach.call(
+      messages.querySelectorAll('.afz-ai-common-question, .afz-ai-followup-question'),
+      function (button) { button.disabled = busy; }
+    );
     status.textContent = busy ? 'AFZ Assistant is thinking…' : '';
 
     if (!busy) input.focus();
   }
 
   async function sendMessage(source) {
+    if (sendBtn.disabled) return;
     var message = input.value.trim();
 
     if (!message) return;
@@ -1009,8 +1092,16 @@
     removeSoftProjectPrompt();
     removeCommonQuestions();
     addMessage(message, 'user');
-    logQuestionAnalytics(message, source);
     input.value = '';
+
+    if (previewMode) {
+      var faqIndex = COMMON_QUESTIONS.indexOf(message);
+      addMessage(faqIndex >= 0 ? FAQ_ANSWERS[faqIndex] :
+        'For a personalised AI response, visit the AFZ website using the link above and open its assistant. You can also browse the quick questions and FAQs here.', 'bot');
+      return;
+    }
+
+    logQuestionAnalytics(message, source);
     setBusy(true);
 
     try {
@@ -1069,7 +1160,8 @@
     }
 
     setOpen(true);
-    messages.scrollTop = messages.scrollHeight;
+    ensureCommonQuestions();
+    messages.scrollTop = messages.querySelector('.afz-ai-user') ? messages.scrollHeight : 0;
     saveChatSession();
   }
 
