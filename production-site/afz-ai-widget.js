@@ -1104,6 +1104,12 @@
     logQuestionAnalytics(message, source);
     setBusy(true);
 
+    // Preserve the live site's bounded AI request behaviour.
+    var requestController = new AbortController();
+    var requestTimeout = setTimeout(function () {
+      requestController.abort();
+    }, 35000);
+
     try {
       var response = await fetch('/api/ai-chat', {
         method: 'POST',
@@ -1112,7 +1118,8 @@
         },
         body: JSON.stringify({
           message: message
-        })
+        }),
+        signal: requestController.signal
       });
 
       var data;
@@ -1148,6 +1155,7 @@
         'bot'
       );
     } finally {
+      clearTimeout(requestTimeout);
       setBusy(false);
     }
   }
