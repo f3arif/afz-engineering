@@ -5,7 +5,7 @@
   "files": {
     "afz-ai-widget.js": {
       "bundle": "webchat-source/afz-ai-widget.js.gz.b64",
-      "sha256": "ee0c168ce50e4ee1a28c667e584df56e07baa20f8b63364a224fd50137db9cce",
+      "sha256": "ebec83858c3ec6be1f3dde87304237aa6c8bc9702f2c5fb7b661a11d1b3aaf59",
       "requiredMarkers": [
         "AFZ CHAT SESSION PERSISTENCE",
         "/api/ai-chat",
