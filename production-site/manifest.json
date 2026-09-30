@@ -22,16 +22,16 @@
                 },
     "files":  {
                   "index.html":  {
-                                     "sha256":  "fe927fba4c565ba64ddc6054dfe06d10672e63c4a156675e404edafca5028029"
+                                     "sha256":  "54f12224d846a51886fa3ad5dec600f5cc43643372a4766be1caf464391440ea"
                                  },
                   "contact.html":  {
-                                       "sha256":  "ac8e5c0027bde4f52a55dd97a751d25006ddad39df9063f0dfec9a6ba3806ad0"
+                                       "sha256":  "6f8b4816bed240bb62f45b775276cf3176d8d44608e7ba05eaf5404244230d42"
                                    },
                   "services.html":  {
-                                        "sha256":  "7c72dd846b5eaa207a6a5a6af78d9e184e9c80e92e1d6b00289f52682dfa6b96"
+                                        "sha256":  "dd8775eec042b111ba311674ea45533cf7fd42bc43aa70f5cc4b81223d4db67d"
                                     },
                   "afz-ai-widget.js":  {
-                                           "sha256":  "ebec83858c3ec6be1f3dde87304237aa6c8bc9702f2c5fb7b661a11d1b3aaf59"
+                                           "sha256":  "d970c7ab8172e64c54e30925effab321feca775adfa59724da59098075d390ab"
                                        },
                   "afz-ai-widget.css":  {
                                             "sha256":  "7b7af7e544f25c38d15772a89477e4fd5fe5ea6b6360fb4f668b64717252b0dc"
@@ -46,13 +46,13 @@
                                                    "sha256":  "c99627ee1ce3309cc936a8acc731d3302fa4ce3b3c85693ec0fc5d00882089dc"
                                                },
                   "blog.html":  {
-                                    "sha256":  "b088c7f11a47d4bfd1e38b8a3bafeef52204cf70f19901c79a55112417360250"
+                                    "sha256":  "7b0d76aaabc52a55af0c06015e43b673a03ad4ee90583dd1f924267518965b5b"
                                 },
                   "residential-hrv-mechanical-ventilation-ontario.html":  {
-                                                                              "sha256":  "daee8c937cf176b9d8a6327d09beead2f0911687f1ee7387b62cf9af51393ebb"
+                                                                              "sha256":  "4572768ba79c0a6d3aaa0553606a782c864886034e8da2e38ffd70bd7e8c64f4"
                                                                           },
                   "hvac-permit-drawings-in-toronto-what-homeowners-contractors-and-renovators-need-before-app-fxnr73.html":  {
-                                                                                                                                 "sha256":  "00f919e21371c9ef8a97f2a0c11deebcc646f489108d5a407b17b50a6686973d"
+                                                                                                                                 "sha256":  "f622ff4c841bbeb301e41fbba1610964ff6418c575a608af2e51c536f4034b77"
                                                                                                                              },
                   "sitemap.xml":  {
                                       "sha256":  "119b1cffccaab09329651e2b5e00c4ed14b2a73fe625763bbe5a8f7acde048eb"

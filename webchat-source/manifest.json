@@ -5,12 +5,13 @@
   "files": {
     "afz-ai-widget.js": {
       "bundle": "webchat-source/afz-ai-widget.js.gz.b64",
-      "sha256": "ebec83858c3ec6be1f3dde87304237aa6c8bc9702f2c5fb7b661a11d1b3aaf59",
+      "sha256": "d970c7ab8172e64c54e30925effab321feca775adfa59724da59098075d390ab",
       "requiredMarkers": [
         "AFZ CHAT SESSION PERSISTENCE",
         "/api/ai-chat",
         "AFZ PREVIEW FAQ MODE",
-        "Frequently asked questions"
+        "Frequently asked questions",
+        "AFZ INSTANT FAQ ANSWERS"
       ]
     },
     "afz-ai-widget.css": {
@@ -29,5 +30,5 @@
     "publicProxy": "Raspberry Pi NPM",
     "trustedClientIpHeader": "X-AFZ-Client-IP"
   },
-  "updatedAt": "2026-09-24"
+  "updatedAt": "2026-09-30"
 }
