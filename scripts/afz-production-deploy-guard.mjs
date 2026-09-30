@@ -75,6 +75,18 @@ for (const item of required) {
   }
 }
 
+// Verify every tracked production asset, including recovered photographs.
+for (const [file, record] of Object.entries(manifest.files ?? {})) {
+  const filePath = path.join(productionRoot, file);
+  if (!fs.existsSync(filePath)) {
+    fail(`${file} is missing from production-site/.`);
+  }
+  const actual = crypto.createHash('sha256').update(fs.readFileSync(filePath)).digest('hex');
+  if (actual !== record.sha256) {
+    fail(`${file} SHA-256 differs from the reconciled production manifest.`);
+  }
+}
+
 if (manifest.webchat?.endpoint !== '/api/ai-chat') {
   fail('manifest WebChat endpoint must remain same-origin /api/ai-chat.');
 }

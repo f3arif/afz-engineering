@@ -80,7 +80,34 @@
                                                                                               },
                   "toronto-hvac-permit-source/08-air-handling-unit.jpg":  {
                                                                               "sha256":  "cd36b477963d8f01e3f4c8b2730b64b8d6e48ff37093fc71258d6cb34bc1a8a1"
-                                                                          }
+                                                                          },
+                  "img/approach.jpg": {
+                    "sha256": "988ca4d55af050d8c83e4d1e71b4c5ceda7ec9ad7b2298573a1c60b2241d7aa5"
+                  },
+                  "img/cap-air.jpg": {
+                    "sha256": "55884ed3692912d846af2b1c5ee290c538140e5d2237811e3c5b542d5c1dc0e5"
+                  },
+                  "img/cap-heat.jpg": {
+                    "sha256": "d91d59fd3e9e58da0a054acceaa5e309deaed124e8d3c6e91acdf45835d26ecd"
+                  },
+                  "img/cap-water.jpg": {
+                    "sha256": "212359da23559a096e09e7a39852ec8d72488222b678584150eb56a45f5734da"
+                  },
+                  "img/contact.jpg": {
+                    "sha256": "c4814f8d53024d874c27350c72297ef230f05647fb2639e5627d0b720f3a94ac"
+                  },
+                  "img/cta.jpg": {
+                    "sha256": "7827297f0e15a5febcc7be58b92b7220cc4aace57568ca49c99da5cfec24d6f3"
+                  },
+                  "img/hero.jpg": {
+                    "sha256": "7216ab7a79c951a411f628ef2939d3abc8ba8ebea85b9b60324efc1af1a7a1d9"
+                  },
+                  "img/og-image.jpg": {
+                    "sha256": "450a0f194e5dde189ef3a837f0f643bbeddd4973e7263aac8b36884cb0546c19"
+                  },
+                  "img/services.jpg": {
+                    "sha256": "f943af022f4760fff0ea6765e3f4fea462affe8eba26d49e1c748c9d13844c7e"
+                  }
               },
     "publicationGate":  {
                             "notBefore":  "2026-09-14T11:00:00.000Z",
@@ -88,5 +115,21 @@
                             "revision":  18,
                             "scheduledFor":  "2026-09-14T11:00:00.000Z",
                             "articleFile":  "hvac-permit-drawings-in-toronto-what-homeowners-contractors-and-renovators-need-before-app-fxnr73.html"
-                        }
+                        },
+    "imageRecovery": {
+    "recoveredAt": "2026-09-30",
+    "source": "H3 recovered live-site-onedrive-export/html/img",
+    "verification": "The three existing project photographs match the authoritative production manifest byte-for-byte. Nine missing referenced images restored from the same recovered export.",
+    "files": [
+        "img/approach.jpg",
+        "img/cap-air.jpg",
+        "img/cap-heat.jpg",
+        "img/cap-water.jpg",
+        "img/contact.jpg",
+        "img/cta.jpg",
+        "img/hero.jpg",
+        "img/og-image.jpg",
+        "img/services.jpg"
+    ]
+}
 }
