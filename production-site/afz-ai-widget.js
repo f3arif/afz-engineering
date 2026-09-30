@@ -1094,10 +1094,22 @@
     addMessage(message, 'user');
     input.value = '';
 
+    // AFZ INSTANT FAQ ANSWERS: standard questions never wait for AI.
+    var normalizedMessage = message.toLowerCase().replace(/[?!.\s]+$/, '');
+    var faqIndex = COMMON_QUESTIONS.findIndex(function (question) {
+      return question.toLowerCase().replace(/[?!.\s]+$/, '') === normalizedMessage;
+    });
+    if (faqIndex >= 0) {
+      if (!previewMode) logQuestionAnalytics(message, source);
+      addMessage(FAQ_ANSWERS[faqIndex], 'bot');
+      if (!previewMode) {
+        addFollowUpSuggestions(message, FAQ_ANSWERS[faqIndex]);
+        addSoftProjectPrompt(message);
+      }
+      return;
+    }
     if (previewMode) {
-      var faqIndex = COMMON_QUESTIONS.indexOf(message);
-      addMessage(faqIndex >= 0 ? FAQ_ANSWERS[faqIndex] :
-        'For a personalised AI response, visit the AFZ website using the link above and open its assistant. You can also browse the quick questions and FAQs here.', 'bot');
+      addMessage('For a personalised AI response, visit the AFZ website using the link above and open its assistant. You can also browse the quick questions and FAQs here.', 'bot');
       return;
     }
 
