@@ -1,0 +1,28 @@
+[Unit]
+Description=AFZ website contact handler (HP Envy local only)
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+WorkingDirectory=/home/coolyo/.afz/contact-handler/current
+ExecStart=/home/coolyo/.hermes/node/bin/node /home/coolyo/.afz/contact-handler/current/run-hpenvy.cjs
+LoadCredential=mail.env:/home/coolyo/.afz/contact-handler/private/form-handler.env
+Environment=NODE_ENV=production
+Restart=on-failure
+RestartSec=5s
+TimeoutStartSec=30s
+TimeoutStopSec=45s
+KillSignal=SIGTERM
+UMask=0077
+LimitCORE=0
+NoNewPrivileges=true
+LockPersonality=true
+RestrictSUIDSGID=true
+MemoryMax=256M
+TasksMax=64
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=afz-contact-handler
+
+[Install]
+WantedBy=default.target
