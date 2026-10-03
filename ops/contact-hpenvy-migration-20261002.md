@@ -1,6 +1,6 @@
 # Contact service: HP Envy-only migration, 2026-10-02
 
-Resume key: `AFZ-CONTACT-HPENVY-ONLY-20261002`
+Resume key: `AFZ-CONTACT-HPENVY-ONLY-20261003-VERIFIED`
 Previous key: `AFZ-CONTACT-HOTFIX-20261002`
 
 ## Active placement
@@ -38,4 +38,4 @@ Live Caddy SHA-256: `d10b93835d506c8d2eab16094fa1beb66c5509eb1d90723b6953454f591
 
 The previous Caddy file is saved privately as `Caddyfile.pre-hpenvy-only-20261002`. Restoring it would reintroduce the H3 dependency and also requires deliberately re-enabling the retired worker. Do not silently restore that topology. Only the public-edge container was signalled with SIGUSR1; do not use the ambiguous default Caddy admin socket.
 
-PR 11 remains draft and unmerged pending actual delivery verification. The redesign and earlier staged frontend changes remain undeployed.
+Actual delivery is verified. PR 11 can leave draft state; it remains unmerged until an explicit merge step. The redesign and earlier staged frontend changes remain undeployed.
