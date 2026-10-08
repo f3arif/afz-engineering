@@ -1,135 +1,144 @@
 {
-    "schemaVersion":  2,
-    "reconciled":  true,
-    "source":  {
-                   "previousAuthority":  "OneDrive - AFZ Engineering Inc/Websites/AFZ/html",
-                   "capturedFrom":  "https://afzeng.ca",
-                   "capturedAt":  "2026-08-28T00:53:26.735065+00:00",
-                   "verification":  "Public production bytes matched the recovered authoritative OneDrive source SHA-256 values before promotion."
-               },
-    "deployment":  {
-                       "target":  "/opt/edge/afz-site/html",
-                       "mode":  "git-commit-to-pi",
-                       "oneDriveRole":  "backup-only",
-                       "deleteExtraneousFiles":  false
-                   },
-    "webchat":  {
-                    "backendOwner":  "hpenvy",
-                    "endpoint":  "/api/ai-chat",
-                    "backendLocalAddress":  "127.0.0.1:8500",
-                    "healthEndpoint":  "/health",
-                    "proxyRequirement":  "NPM must preserve the existing same-origin route and trusted X-AFZ-Client-IP stamping"
-                },
-    "files":  {
-                  "index.html":  {
-                                     "sha256":  "54f12224d846a51886fa3ad5dec600f5cc43643372a4766be1caf464391440ea"
-                                 },
-                  "contact.html":  {
-                                       "sha256":  "6f8b4816bed240bb62f45b775276cf3176d8d44608e7ba05eaf5404244230d42"
-                                   },
-                  "services.html":  {
-                                        "sha256":  "dd8775eec042b111ba311674ea45533cf7fd42bc43aa70f5cc4b81223d4db67d"
-                                    },
-                  "afz-ai-widget.js":  {
-                                           "sha256":  "d970c7ab8172e64c54e30925effab321feca775adfa59724da59098075d390ab"
-                                       },
-                  "afz-ai-widget.css":  {
-                                            "sha256":  "7b7af7e544f25c38d15772a89477e4fd5fe5ea6b6360fb4f668b64717252b0dc"
-                                        },
-                  "img/project-residential.jpg":  {
-                                                      "sha256":  "5b5ea73924a7ad837108c4852a9b2359561d71c4d386ba38076f1ea70d4ec0ea"
-                                                  },
-                  "img/project-commercial.jpg":  {
-                                                     "sha256":  "b8587c748ac37d94c2e0431b1153da96a9f18bd9ccfffed2910f836ca6aba884"
-                                                 },
-                  "img/project-retrofit.jpg":  {
-                                                   "sha256":  "c99627ee1ce3309cc936a8acc731d3302fa4ce3b3c85693ec0fc5d00882089dc"
-                                               },
-                  "blog.html":  {
-                                    "sha256":  "7b0d76aaabc52a55af0c06015e43b673a03ad4ee90583dd1f924267518965b5b"
-                                },
-                  "residential-hrv-mechanical-ventilation-ontario.html":  {
-                                                                              "sha256":  "4572768ba79c0a6d3aaa0553606a782c864886034e8da2e38ffd70bd7e8c64f4"
-                                                                          },
-                  "hvac-permit-drawings-in-toronto-what-homeowners-contractors-and-renovators-need-before-app-fxnr73.html":  {
-                                                                                                                                 "sha256":  "f622ff4c841bbeb301e41fbba1610964ff6418c575a608af2e51c536f4034b77"
-                                                                                                                             },
-                  "sitemap.xml":  {
-                                      "sha256":  "119b1cffccaab09329651e2b5e00c4ed14b2a73fe625763bbe5a8f7acde048eb"
-                                  },
-                  "robots.txt":  {
-                                     "sha256":  "ce52fb8624dea2f02de0f576a048763e4e9412c32099e80d9db0b3a654869f42"
-                                 },
-                  "assets/insights/hrv/heat-exchanger-cc0.svg":  {
-                                                                     "sha256":  "bc289895fa8c282b400a17eac95728f6464f6f9f9fc591576a9d6b953af57d18"
-                                                                 },
-                  "toronto-hvac-permit-source/01-toronto-mechanical-penthouse-1280.jpg":  {
-                                                                                              "sha256":  "eda3ad4474f8e4b84bf7f3c1103bd039b78bae1222d0b32baa56e61786763e62"
-                                                                                          },
-                  "toronto-hvac-permit-source/03-air-ductwork.jpg":  {
-                                                                         "sha256":  "978b7ca3e6516ae334871e48582394baf709fb5430ccdf126c3ab422ec000769"
-                                                                     },
-                  "toronto-hvac-permit-source/04-commercial-kitchen.jpg":  {
-                                                                               "sha256":  "b6b59c0715ce93fc62a61246b49ccc44ff08ccd146e200ef3fa4389f51bfbe26"
-                                                                           },
-                  "toronto-hvac-permit-source/06-heat-exchanger-schematic.svg":  {
-                                                                                     "sha256":  "bc289895fa8c282b400a17eac95728f6464f6f9f9fc591576a9d6b953af57d18"
-                                                                                 },
-                  "toronto-hvac-permit-source/07-building-services-coordinated-drawing.jpg":  {
-                                                                                                  "sha256":  "a2de6b6f50f861b07cb4aafa1d06a2ccfa1a62eb2ed0b9d7c0543c0e93cfb9b4"
-                                                                                              },
-                  "toronto-hvac-permit-source/08-air-handling-unit.jpg":  {
-                                                                              "sha256":  "cd36b477963d8f01e3f4c8b2730b64b8d6e48ff37093fc71258d6cb34bc1a8a1"
-                                                                          },
-                  "img/approach.jpg": {
-                    "sha256": "988ca4d55af050d8c83e4d1e71b4c5ceda7ec9ad7b2298573a1c60b2241d7aa5"
-                  },
-                  "img/cap-air.jpg": {
-                    "sha256": "55884ed3692912d846af2b1c5ee290c538140e5d2237811e3c5b542d5c1dc0e5"
-                  },
-                  "img/cap-heat.jpg": {
-                    "sha256": "d91d59fd3e9e58da0a054acceaa5e309deaed124e8d3c6e91acdf45835d26ecd"
-                  },
-                  "img/cap-water.jpg": {
-                    "sha256": "212359da23559a096e09e7a39852ec8d72488222b678584150eb56a45f5734da"
-                  },
-                  "img/contact.jpg": {
-                    "sha256": "c4814f8d53024d874c27350c72297ef230f05647fb2639e5627d0b720f3a94ac"
-                  },
-                  "img/cta.jpg": {
-                    "sha256": "7827297f0e15a5febcc7be58b92b7220cc4aace57568ca49c99da5cfec24d6f3"
-                  },
-                  "img/hero.jpg": {
-                    "sha256": "7216ab7a79c951a411f628ef2939d3abc8ba8ebea85b9b60324efc1af1a7a1d9"
-                  },
-                  "img/og-image.jpg": {
-                    "sha256": "450a0f194e5dde189ef3a837f0f643bbeddd4973e7263aac8b36884cb0546c19"
-                  },
-                  "img/services.jpg": {
-                    "sha256": "f943af022f4760fff0ea6765e3f4fea462affe8eba26d49e1c748c9d13844c7e"
-                  }
-              },
-    "publicationGate":  {
-                            "notBefore":  "2026-09-14T11:00:00.000Z",
-                            "blogPostId":  "cmtpe1zrd0000zou4xefxnr73",
-                            "revision":  18,
-                            "scheduledFor":  "2026-09-14T11:00:00.000Z",
-                            "articleFile":  "hvac-permit-drawings-in-toronto-what-homeowners-contractors-and-renovators-need-before-app-fxnr73.html"
-                        },
-    "imageRecovery": {
+  "schemaVersion": 2,
+  "reconciled": true,
+  "source": {
+    "previousAuthority": "OneDrive - AFZ Engineering Inc/Websites/AFZ/html",
+    "capturedFrom": "https://afzeng.ca",
+    "capturedAt": "2026-08-28T00:53:26.735065+00:00",
+    "verification": "Public production bytes matched the recovered authoritative OneDrive source SHA-256 values before promotion."
+  },
+  "deployment": {
+    "target": "/opt/edge/afz-site/html",
+    "mode": "git-commit-to-pi",
+    "oneDriveRole": "backup-only",
+    "deleteExtraneousFiles": false
+  },
+  "webchat": {
+    "backendOwner": "hpenvy",
+    "endpoint": "/api/ai-chat",
+    "backendLocalAddress": "127.0.0.1:8500",
+    "healthEndpoint": "/health",
+    "proxyRequirement": "NPM must preserve the existing same-origin route and trusted X-AFZ-Client-IP stamping"
+  },
+  "files": {
+    "index.html": {
+      "sha256": "c1b674303aacb6a5f6be7049e4318105506fa0d9aab982ba602bcd2746ca703d"
+    },
+    "contact.html": {
+      "sha256": "a43c114d7e117c8035bceb658ecef931304d969ed14f6b35b31bc0093067a330"
+    },
+    "services.html": {
+      "sha256": "8d666a428d5f525a7815c575c5e3917a3bf8c028b9a65811924f3ef30ceaffdb"
+    },
+    "afz-ai-widget.js": {
+      "sha256": "d970c7ab8172e64c54e30925effab321feca775adfa59724da59098075d390ab"
+    },
+    "afz-ai-widget.css": {
+      "sha256": "7b7af7e544f25c38d15772a89477e4fd5fe5ea6b6360fb4f668b64717252b0dc"
+    },
+    "img/project-residential.jpg": {
+      "sha256": "5b5ea73924a7ad837108c4852a9b2359561d71c4d386ba38076f1ea70d4ec0ea"
+    },
+    "img/project-commercial.jpg": {
+      "sha256": "b8587c748ac37d94c2e0431b1153da96a9f18bd9ccfffed2910f836ca6aba884"
+    },
+    "img/project-retrofit.jpg": {
+      "sha256": "c99627ee1ce3309cc936a8acc731d3302fa4ce3b3c85693ec0fc5d00882089dc"
+    },
+    "blog.html": {
+      "sha256": "63ea6c07f4982e2f477cfb929337e27e27192e3f8a17ac08e4ae72a9a53b3425"
+    },
+    "residential-hrv-mechanical-ventilation-ontario.html": {
+      "sha256": "4572768ba79c0a6d3aaa0553606a782c864886034e8da2e38ffd70bd7e8c64f4"
+    },
+    "hvac-permit-drawings-in-toronto-what-homeowners-contractors-and-renovators-need-before-app-fxnr73.html": {
+      "sha256": "f622ff4c841bbeb301e41fbba1610964ff6418c575a608af2e51c536f4034b77"
+    },
+    "sitemap.xml": {
+      "sha256": "119b1cffccaab09329651e2b5e00c4ed14b2a73fe625763bbe5a8f7acde048eb"
+    },
+    "robots.txt": {
+      "sha256": "ce52fb8624dea2f02de0f576a048763e4e9412c32099e80d9db0b3a654869f42"
+    },
+    "assets/insights/hrv/heat-exchanger-cc0.svg": {
+      "sha256": "bc289895fa8c282b400a17eac95728f6464f6f9f9fc591576a9d6b953af57d18"
+    },
+    "toronto-hvac-permit-source/01-toronto-mechanical-penthouse-1280.jpg": {
+      "sha256": "eda3ad4474f8e4b84bf7f3c1103bd039b78bae1222d0b32baa56e61786763e62"
+    },
+    "toronto-hvac-permit-source/03-air-ductwork.jpg": {
+      "sha256": "978b7ca3e6516ae334871e48582394baf709fb5430ccdf126c3ab422ec000769"
+    },
+    "toronto-hvac-permit-source/04-commercial-kitchen.jpg": {
+      "sha256": "b6b59c0715ce93fc62a61246b49ccc44ff08ccd146e200ef3fa4389f51bfbe26"
+    },
+    "toronto-hvac-permit-source/06-heat-exchanger-schematic.svg": {
+      "sha256": "bc289895fa8c282b400a17eac95728f6464f6f9f9fc591576a9d6b953af57d18"
+    },
+    "toronto-hvac-permit-source/07-building-services-coordinated-drawing.jpg": {
+      "sha256": "a2de6b6f50f861b07cb4aafa1d06a2ccfa1a62eb2ed0b9d7c0543c0e93cfb9b4"
+    },
+    "toronto-hvac-permit-source/08-air-handling-unit.jpg": {
+      "sha256": "cd36b477963d8f01e3f4c8b2730b64b8d6e48ff37093fc71258d6cb34bc1a8a1"
+    },
+    "img/approach.jpg": {
+      "sha256": "988ca4d55af050d8c83e4d1e71b4c5ceda7ec9ad7b2298573a1c60b2241d7aa5"
+    },
+    "img/cap-air.jpg": {
+      "sha256": "55884ed3692912d846af2b1c5ee290c538140e5d2237811e3c5b542d5c1dc0e5"
+    },
+    "img/cap-heat.jpg": {
+      "sha256": "d91d59fd3e9e58da0a054acceaa5e309deaed124e8d3c6e91acdf45835d26ecd"
+    },
+    "img/cap-water.jpg": {
+      "sha256": "212359da23559a096e09e7a39852ec8d72488222b678584150eb56a45f5734da"
+    },
+    "img/contact.jpg": {
+      "sha256": "c4814f8d53024d874c27350c72297ef230f05647fb2639e5627d0b720f3a94ac"
+    },
+    "img/cta.jpg": {
+      "sha256": "7827297f0e15a5febcc7be58b92b7220cc4aace57568ca49c99da5cfec24d6f3"
+    },
+    "img/hero.jpg": {
+      "sha256": "7216ab7a79c951a411f628ef2939d3abc8ba8ebea85b9b60324efc1af1a7a1d9"
+    },
+    "img/og-image.jpg": {
+      "sha256": "450a0f194e5dde189ef3a837f0f643bbeddd4973e7263aac8b36884cb0546c19"
+    },
+    "img/services.jpg": {
+      "sha256": "f943af022f4760fff0ea6765e3f4fea462affe8eba26d49e1c748c9d13844c7e"
+    },
+    "afz-visual-polish.css": {
+      "sha256": "21bf16b2c36acb10f4f72e6b63c12dc4becee7d5d68f985e529786a2fe5ad4fc"
+    }
+  },
+  "publicationGate": {
+    "notBefore": "2026-09-14T11:00:00.000Z",
+    "blogPostId": "cmtpe1zrd0000zou4xefxnr73",
+    "revision": 18,
+    "scheduledFor": "2026-09-14T11:00:00.000Z",
+    "articleFile": "hvac-permit-drawings-in-toronto-what-homeowners-contractors-and-renovators-need-before-app-fxnr73.html"
+  },
+  "imageRecovery": {
     "recoveredAt": "2026-09-30",
     "source": "H3 recovered live-site-onedrive-export/html/img",
     "verification": "The three existing project photographs match the authoritative production manifest byte-for-byte. Nine missing referenced images restored from the same recovered export.",
     "files": [
-        "img/approach.jpg",
-        "img/cap-air.jpg",
-        "img/cap-heat.jpg",
-        "img/cap-water.jpg",
-        "img/contact.jpg",
-        "img/cta.jpg",
-        "img/hero.jpg",
-        "img/og-image.jpg",
-        "img/services.jpg"
+      "img/approach.jpg",
+      "img/cap-air.jpg",
+      "img/cap-heat.jpg",
+      "img/cap-water.jpg",
+      "img/contact.jpg",
+      "img/cta.jpg",
+      "img/hero.jpg",
+      "img/og-image.jpg",
+      "img/services.jpg"
     ]
-}
+  },
+  "visualPolish": {
+    "stagedAt": "2026-10-08",
+    "scope": "Homepage photo discipline strip, mobile spacing and navigation/readability polish",
+    "status": "source-review-only; not deployed",
+    "assetPolicy": "Reuses already recovered AFZ production photographs; WebChat, contact handler and proxy unchanged"
+  }
 }
