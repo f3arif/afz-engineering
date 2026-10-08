@@ -56,3 +56,15 @@ html{scroll-padding-top:110px}
   .discipline-tile img{transition:none}
   .discipline-tile:hover img,.discipline-tile:focus-visible img{transform:none}
 }
+
+/* Insights: use existing article-specific imagery instead of text-only cards. */
+.blog-main .article-card{grid-template-columns:minmax(150px,225px) minmax(0,1fr) auto;gap:24px}
+.blog-main .article-card-thumb{display:block;width:100%;height:190px;object-fit:cover;object-position:center;border-radius:12px;background:#eaf2f8}
+.blog-main .article-card-diagram{object-fit:contain;background:#f3f8fb;padding:16px}
+@media(max-width:900px){
+  .blog-main .article-card{grid-template-columns:minmax(130px,180px) minmax(0,1fr);gap:20px}
+}
+@media(max-width:620px){
+  .blog-main .article-card{grid-template-columns:1fr;gap:16px;padding:20px}
+  .blog-main .article-card-thumb{height:190px}
+}
