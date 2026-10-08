@@ -1,0 +1,58 @@
+/* AFZ Engineering visual polish — additive, static, no runtime dependencies.
+   October 2026. All photographs are existing production-site assets. */
+html{scroll-padding-top:110px}
+.hero-bg{background-position:center,60% center,center,center,center}
+@media(min-width:901px){
+  .hero-bg{
+    background-image:linear-gradient(105deg,rgba(18,49,90,.95) 0%,rgba(23,58,99,.89) 42%,rgba(23,58,99,.55) 72%,rgba(10,147,212,.23) 100%),url("img/hero.jpg"),linear-gradient(rgba(255,255,255,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.055) 1px,transparent 1px),radial-gradient(circle at 72% 28%,rgba(10,147,212,.30),transparent 62%);
+  }
+}
+/* Use actual site photography to make the primary service paths scannable. */
+.discipline-strip{background:#f5f8fb;padding:28px 0 32px;border-bottom:1px solid #e0e9f2}
+.discipline-strip-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.discipline-tile{display:block;position:relative;min-width:0;height:184px;overflow:hidden;border-radius:14px;background:#173a63;isolation:isolate;box-shadow:0 4px 18px rgba(18,49,90,.12);text-decoration:none}
+.discipline-tile img{width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .35s ease}
+.discipline-tile::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,49,90,.04) 0%,rgba(18,49,90,.14) 33%,rgba(10,30,54,.89) 100%);pointer-events:none}
+.discipline-tile span{position:absolute;left:18px;bottom:17px;right:18px;z-index:1;color:#fff;font-family:var(--f-head);font-weight:700;font-size:1.06rem;line-height:1.3;text-shadow:0 1px 3px rgba(0,0,0,.3)}
+.discipline-tile span::after{content:" ↗";color:#7fd0f2}
+.discipline-tile:hover img,.discipline-tile:focus-visible img{transform:scale(1.045)}
+.discipline-tile:focus-visible{outline:3px solid #0a93d4;outline-offset:4px}
+@media(max-width:900px){
+  .discipline-strip-grid{gap:12px}
+  .discipline-tile{height:164px}
+  .discipline-tile span{font-size:.95rem;left:14px;bottom:14px;right:12px}
+}
+@media(max-width:620px){
+  /* Reset generic section padding: hero/picture CTA already pad their inner wrap. */
+  .hero,.pcta{padding:0}
+  .hero-inner{padding-top:52px;padding-bottom:54px}
+  .hero h1{font-size:clamp(2rem,8vw,2.5rem);line-height:1.12;letter-spacing:-.025em}
+  .hero .lede{font-size:1rem;line-height:1.65;margin-bottom:24px}
+  .hero-cta{display:flex;flex-direction:column;align-items:stretch;gap:12px;margin-bottom:24px}
+  .hero-cta .btn{min-height:48px;justify-content:center;white-space:normal;text-align:center}
+  .hero-trust{display:grid;grid-template-columns:1fr;gap:9px;padding-top:18px}
+  .hero-trust span{font-size:.84rem;line-height:1.45}
+  .pcta .wrap{padding:58px 20px}
+  .discipline-strip{padding:20px 0 24px}
+  .discipline-strip-grid{grid-template-columns:1fr;gap:10px}
+  .discipline-tile{height:122px}
+  .discipline-tile span{font-size:1rem}
+  .contact .wrap{gap:28px}
+  .cform{padding:20px}
+  .appr-img .stamp2{left:12px;bottom:12px;padding:10px 13px}
+  .btn{white-space:normal}
+}
+@media(max-width:480px){
+  /* A 2×2 metrics layout avoids a long, full-width four-row interruption. */
+  .stats .wrap{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .stats .stat{padding:20px 10px;border-bottom:0}
+  .stats .stat:nth-child(odd){border-left:0!important}
+  .stats .stat:nth-child(even){border-left:1px solid rgba(255,255,255,.12)}
+  .stats .stat:nth-child(-n+2){border-bottom:1px solid rgba(255,255,255,.12)}
+  .stats .stat b{font-size:clamp(1.02rem,4.2vw,1.22rem);line-height:1.18;overflow-wrap:break-word}
+  .stats .stat span{font-size:.68rem;line-height:1.35;letter-spacing:.02em}
+}
+@media(prefers-reduced-motion:reduce){
+  .discipline-tile img{transition:none}
+  .discipline-tile:hover img,.discipline-tile:focus-visible img{transform:none}
+}
