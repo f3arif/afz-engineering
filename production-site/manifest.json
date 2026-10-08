@@ -22,7 +22,7 @@
                 },
     "files":  {
                   "afz-visual-polish.css": {
-                    "sha256": "21bf16b2c36acb10f4f72e6b63c12dc4becee7d5d68f985e529786a2fe5ad4fc"
+                    "sha256": "f3982866595f9b046d58e785f20f46dc225485f80242526038c7b32f9a90b262"
                   },
                   "index.html":  {
                                      "sha256":  "c1b674303aacb6a5f6be7049e4318105506fa0d9aab982ba602bcd2746ca703d"
@@ -49,7 +49,7 @@
                                                    "sha256":  "c99627ee1ce3309cc936a8acc731d3302fa4ce3b3c85693ec0fc5d00882089dc"
                                                },
                   "blog.html":  {
-                                    "sha256":  "63ea6c07f4982e2f477cfb929337e27e27192e3f8a17ac08e4ae72a9a53b3425"
+                                    "sha256":  "e8d650cf0e3faa92c262f198b47538d50d6c602f42b3501905eeef1351d0c47f"
                                 },
                   "residential-hrv-mechanical-ventilation-ontario.html":  {
                                                                               "sha256":  "4572768ba79c0a6d3aaa0553606a782c864886034e8da2e38ffd70bd7e8c64f4"
