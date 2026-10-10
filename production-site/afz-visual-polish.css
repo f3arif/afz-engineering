@@ -68,3 +68,22 @@ html{scroll-padding-top:110px}
   .blog-main .article-card{grid-template-columns:1fr;gap:16px;padding:20px}
   .blog-main .article-card-thumb{height:190px}
 }
+
+/* Separate related articles and keep the floating phone control compact. */
+.blog-main .article-card + .article-card{margin-top:24px}
+@media(max-width:620px){
+  #afz-ai-launcher.afz-ai-launcher-featured{
+    right:10px!important;bottom:10px!important;width:164px!important;
+    min-height:48px!important;gap:7px!important;padding:7px 8px!important;
+    border-radius:14px!important;
+  }
+  #afz-ai-launcher.afz-ai-launcher-featured .afz-ai-launcher-icon{
+    flex:0 0 32px!important;width:32px!important;height:32px!important;
+    font-size:12px!important;
+  }
+  #afz-ai-launcher.afz-ai-launcher-featured .afz-ai-launcher-title{font-size:13px!important}
+  #afz-ai-launcher.afz-ai-launcher-featured .afz-ai-launcher-subtitle{display:none!important}
+  #afz-ai-launcher.afz-ai-launcher-featured .afz-ai-launcher-arrow{
+    flex:0 0 20px!important;width:20px!important;height:20px!important;
+  }
+}
