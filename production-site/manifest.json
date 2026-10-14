@@ -22,13 +22,13 @@
                 },
     "files":  {
                   "index.html":  {
-                                     "sha256":  "d89eac1cd8079f95f1fe348320a31a8e804b2e10683f2723268c0d78236aba37"
+                                     "sha256":  "df1dd81910d9e2f0e10d6837c53bf81ee4e72b97a22f32f191fffe351aa09938"
                                  },
                   "contact.html":  {
-                                       "sha256":  "ef10a9081c6ba03d7141341729a5cb5e8b6bbd10f7a47d83f1ec2758ca95b7cb"
+                                       "sha256":  "2426ad5cf4f9a4be47eba5e1b7e4075bf9cb345f6020692b8eaa86e7fd23c0b2"
                                    },
                   "services.html":  {
-                                        "sha256":  "c6941b7ffd6d4f0fc3c87dd7f21c740195ec7d34cde0a54bbff914888ca0ed73"
+                                        "sha256":  "b4b7ffecf0e20dd24b9a39dc3e5f0ce8bfefb3fbb97e9706e876b76327e5683a"
                                     },
                   "afz-ai-widget.js":  {
                                            "sha256":  "d970c7ab8172e64c54e30925effab321feca775adfa59724da59098075d390ab"
@@ -46,13 +46,13 @@
                                                    "sha256":  "c99627ee1ce3309cc936a8acc731d3302fa4ce3b3c85693ec0fc5d00882089dc"
                                                },
                   "blog.html":  {
-                                    "sha256":  "7b0d76aaabc52a55af0c06015e43b673a03ad4ee90583dd1f924267518965b5b"
+                                    "sha256":  "882795dc825f0b40686230302063b0d5df44141285dba7afe2ff3430cace2e01"
                                 },
                   "residential-hrv-mechanical-ventilation-ontario.html":  {
-                                                                              "sha256":  "4572768ba79c0a6d3aaa0553606a782c864886034e8da2e38ffd70bd7e8c64f4"
+                                                                              "sha256":  "f366dca8265a87eda7d2bc720af92a74b5a4a64162c389fb62711c176392bdbc"
                                                                           },
                   "hvac-permit-drawings-in-toronto-what-homeowners-contractors-and-renovators-need-before-app-fxnr73.html":  {
-                                                                                                                                 "sha256":  "f622ff4c841bbeb301e41fbba1610964ff6418c575a608af2e51c536f4034b77"
+                                                                                                                                 "sha256":  "88c93c908f2e38d9b292e6b35e3a40cf3602fb97a1e4f46a7edae53de8602d11"
                                                                                                                              },
                   "sitemap.xml":  {
                                       "sha256":  "88e214174e548dacb9e022e8b93d46614fea3c0774f93a448088dcbc5f5b8071"
@@ -107,7 +107,9 @@
                   },
                   "img/services.jpg": {
                     "sha256": "f943af022f4760fff0ea6765e3f4fea462affe8eba26d49e1c748c9d13844c7e"
-                  }
+                  },
+                  "favicon.png": {"sha256": "7d9c0b47369ff1992b7ee1960e6a15382447caa31d6b931ab8a393ea12dde534"},
+                  "favicon.ico": {"sha256": "8e9f6fd187802f2d14c3c7deba62e2ad5cb08d8098044b0c74e1de7fd6b981b8"}
               },
     "publicationGate":  {
                             "notBefore":  "2026-09-14T11:00:00.000Z",
