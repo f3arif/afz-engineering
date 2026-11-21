@@ -72,3 +72,19 @@ Stop only `afz-engineering-auth0-pilot.service` if that dedicated pilot unit was
 Source: `pilots/auth0-review/`. ZBook checkout: `/home/coolyo/AFZ/Engineering/afz-engineering/`. Work claim: [afz-engineering#15](https://github.com/f3arif/afz-engineering/issues/15).
 
 Official references: [Auth0 Express SDK](https://github.com/auth0/express-openid-connect), [Express quickstart](https://auth0.com/docs/quickstart/webapp/express/index), [Auth0 agent integration guidance](https://github.com/auth0/agent-skills/tree/main/plugins/auth0/skills/auth0/references/framework-express).
+
+## 2026-11-20 (ET) — development tenant connected
+
+The owner completed Auth0 tenant onboarding and CLI authorization. The dedicated **AFZ Engineering Review Pilot** Regular Web Application is configured in `dev-f4a3pyb1wvc7hajf.us.auth0.com`, with authorization-code grant only, HTTP Basic client authentication, OIDC conformance and RS256. Its exact callback and logout URLs cover the intended private HTTPS origin and localhost SSH-forwarded testing. Private credentials are saved outside Git with mode 0600. No pilot user is assigned project access automatically.
+
+`npm run verify:tenant` performs a credential-free connection check using the real Auth0 discovery/JWKS endpoints and SDK authorization redirect. It preserves transaction cookies in memory to reach the real login page and checks the exact callback, code + PKCE, Secure transaction cookies and anonymous API rejection. It never emits settings, tokens, cookies, nonce, state or generated authorization URLs. Passing this check does not establish a completed real-user session.
+
+The connection check reached the real Auth0 sign-in page with HTTP 200. All 17 fixture-based access/security tests also pass. Actual owner/app-user login, callback completion, live project assignment, two real accounts and logout remain unverified. Dashboard administrator identity and pilot application-user identity are separate; project access is granted only to a verified application-user subject.
+
+The already-running transient pilot requires a restart to load its new private settings. The dedicated HTTPS listener is still absent. AFZ Bridge requires approval for a service restart and cannot perform the required Tailscale administrator operation. An owner may activate only this pilot from a normal ZBook terminal with:
+
+```sh
+systemctl --user restart afz-engineering-auth0-pilot.service && sudo tailscale serve --bg --https=19871 --yes http://127.0.0.1:19870
+```
+
+Before adding the handler, confirm port 19871 is still unused. Do not reset Serve or change another handler. Then verify `https://afz-zbook.tailc9bb62.ts.net:19871/`. Sign-in should reach **AFZ Engineering Review Pilot** in the configured tenant. An unassigned signed-in account is denied project access until its subject is explicitly assigned.
