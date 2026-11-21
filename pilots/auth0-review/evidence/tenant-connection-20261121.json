@@ -1,0 +1,28 @@
+{
+  "checkedAtUTC": "2026-11-21T04:46:32.780Z",
+  "tenant": "dev-f4a3pyb1wvc7hajf.us.auth0.com",
+  "applicationName": "AFZ Engineering Review Pilot",
+  "applicationType": "regular_web",
+  "configurationReady": true,
+  "privateSettingsPermissions": "0600",
+  "grantTypes": [
+    "authorization_code"
+  ],
+  "tokenEndpointAuthentication": "client_secret_basic",
+  "oidcConformant": true,
+  "signingAlgorithm": "RS256",
+  "discoveryVerified": true,
+  "signingKeyCount": 2,
+  "authorizationCodeAndPKCE": true,
+  "secureTransactionCookies": true,
+  "exactCallback": "https://afz-zbook.tailc9bb62.ts.net:19871/callback",
+  "tenantLoginPageStatus": 200,
+  "configuredAnonymousAPIStatus": 401,
+  "fixtureTestsPassed": 17,
+  "fixtureTestsFailed": 0,
+  "realUserSessionVerified": false,
+  "realAccountAssignments": "none; no automatic grants",
+  "liveUnitReload": "pending owner activation",
+  "privateHTTPSRoute": "not configured; existing operator authorization denial",
+  "sourceSurface": "AFZ Bridge execution on afz-zbook"
+}

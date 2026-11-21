@@ -1,0 +1,28 @@
+{
+  "project": "AFZ Engineering Auth0 review pilot",
+  "source_surface": "AFZ Bridge execution ChatGPT on afz-zbook",
+  "date_utc": "2026-11-20",
+  "base_commit": "ffe321ab37fef71e0e5689d37df83f85de706148",
+  "claim": "https://github.com/f3arif/afz-engineering/issues/15",
+  "tests": {
+    "command": "npm test",
+    "passed": 17,
+    "failed": 0,
+    "provider": "temporary local OIDC fixture with actual pinned Auth0 SDK; not a real tenant"
+  },
+  "real_auth0_sign_in": "blocked: one-time owner Auth0 connection required",
+  "browser_visual_check": "unverified: browser runtime not available",
+  "runtime": {
+    "unit": "afz-engineering-auth0-pilot.service",
+    "type": "transient user service, no reboot autostart",
+    "listen": "127.0.0.1:19870",
+    "memory_limit_mib": 192,
+    "observed_memory_bytes": 21196800,
+    "landing_status": 200,
+    "protected_api_status": 503,
+    "configuration": "not connected; fail closed"
+  },
+  "private_https_route": "not created: Tailscale returned operator authorization denial",
+  "production_changes": false,
+  "real_drawings_connected": false
+}
